@@ -1,0 +1,64 @@
+.tools{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mainTools{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.tools .inputTool,.selectTool{
+    margin-right: 10px;
+}
+
+.tools .inputTool{
+    border: 1px solid transparent;
+    width: 15%;
+}
+
+.tools .inputTool input{
+    height: 38px;
+    width: 100%;
+    font-size: 14px;
+    border: 1px rgb(218, 218, 218) solid;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.tools .inputTool input:hover{
+    border: 2px solid rgb(136, 136, 136);
+}
+
+.tools .inputTool input:focus{
+    border: 2px solid rgb(38,132,255);
+}
+
+.tools .inputTool input:focus .inputTool{
+    border: 0px solid transparent;
+}
+.tools .selectTool{
+    width: 10%;
+}
+.tools .selectTool div{
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.tools .buttonTool button{
+    border: 1px rgb(218, 218, 218) solid;
+    font-size: 14px;
+    padding: 10px 25px;
+    background: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+.tools .buttonTool button:hover{
+    border: 1px solid rgb(136, 136, 136);
+}

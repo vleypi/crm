@@ -15,7 +15,7 @@ const Students = (props) => {
             <td>Активный</td>
         </tr>
     ))
-    console.log(students)
+
     return (
         <div className={styles.students}>
             <table className={table.commonTable}>

@@ -11,9 +11,10 @@ const Nav = () =>{
         {text: 'Главная', href: '/crm/dashboard/main'},
         {text: 'Ученики', href: '/crm/dashboard/students'},
         {text: 'Педагоги', href: '/crm/dashboard/teachers'},
-        {text: 'Статусы', href: '/crm/dashboard/statuses'}
+        {text: 'Статусы', href: '/crm/dashboard/statuses'},
+        {text: 'Занятия',href: '/crm/dashboard/lessons'}
     ].map((link)=>(
-        <Link href={link.href} ><a className={router.asPath === link.href && styles.active}>{link.text}</a></Link>
+        <Link href={link.href} ><a className={router.pathname === link.href && styles.active}>{link.text}</a></Link>
     ))
 
 

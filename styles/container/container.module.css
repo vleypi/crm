@@ -13,4 +13,5 @@
 .contentUser{
     padding: 30px;
     overflow-y: auto;
+    height: 100%;
 }

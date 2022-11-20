@@ -1,0 +1,117 @@
+.statuses{
+
+}
+
+.statuses .name,.color,.checkboxes,.add{
+    margin: 30px 0;
+}
+
+.statuses p{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.795);
+}
+
+.statuses .close {
+    width: 100%;
+    cursor: pointer;
+}
+.statuses .close svg{
+    width: 20px;
+    height: 20px;
+}
+
+.statuses .name,.color{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.statuses .name p,.color p{
+    width: 30%;
+}
+
+.statuses .input,.select{
+    width: 70%;
+
+}
+
+.statuses .input{
+    height: 38px;
+    font-size: 14px;
+    border: 1px rgb(218, 218, 218) solid;
+    outline: none;
+}
+
+.statuses .input{
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.15s;
+}
+
+.statuses .input:hover{
+    border: 1px solid rgb(136, 136, 136);
+}
+
+.statuses .input:focus{
+    border: 1px solid rgb(38,132,255);
+}
+
+.statuses .input:focus:hover{
+    border: 2px solid rgb(38,132,255);
+}
+
+.statuses .checkboxContainer{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.statuses .checkboxContainer:hover .checkbox{
+    border: 1px solid rgb(136, 136, 136);
+
+}
+
+.statuses .checkboxContainer .checkbox{
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    border: 1px rgb(218, 218, 218) solid;
+    border-radius: 3px;
+    transition: 0.15s;
+}
+
+.statuses .checkboxContainer .checked{
+    border: 1px rgb(38,132,255) solid;
+    background: rgb(38,132,255);
+}
+
+.statuses .checkboxContainer .checked:hover{
+
+}
+
+.statuses .select div{
+    font-size: 14px;
+}
+
+.statuses .buttons{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.statuses .buttons button{
+    border: 1px rgb(218, 218, 218) solid;
+    font-size: 14px;
+    padding: 10px 25px;
+    background: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+.statuses .buttons .delete{
+    border: 1px red solid;
+    background-color: rgb(255, 146, 146);
+    color: white;
+}

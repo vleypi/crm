@@ -8,8 +8,10 @@ const StatusesStudent = (props) => {
     
     const statusesTable = statuses.map((status)=>(
       <tr className={table.tableItem} key={status.status_id}>
-          <td>{status.status_name}</td>
-          <td>{status.status_color}</td>
+          <td style={{display: 'flex',alignItems: 'center'}}>
+                <div style={{width: '10px',height: '10px',background: status.status_color,marginRight: '10px',borderRadius: '50%'}}></div>
+                {status.status_name}
+            </td>
       </tr>
     ))  
 
@@ -22,7 +24,6 @@ const StatusesStudent = (props) => {
               <thead>
                   <tr>
                       <th>Название</th>
-                      <th>Цвет</th>
                   </tr>
               </thead>
               <tbody>

@@ -38,3 +38,13 @@
     cursor: pointer;
     background: rgb(222,222,253);
 }
+
+.selectTd{
+    position: relative;
+}
+
+.selectDiv{
+    position: absolute;
+    bottom: -30px;
+    z-index: 1;
+}

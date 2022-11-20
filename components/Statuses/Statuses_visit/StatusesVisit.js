@@ -3,10 +3,9 @@ import { useDispatch } from "react-redux"
 import { setPopupType } from "../../../store/slices/popup"
 import table from '../../../styles/table/table.module.css'
 
-const StatusesVisit = (props) => {
+const StatusesVisit = ({statuses_visits,styles}) => {
 
-    const styles = props.styles
-    const [statusesVisits,setStatusesVisits] = useState(props.statuses_visits)
+    
     const dispatch = useDispatch({})
 
     const popupStatus = (type,contentType,functions) =>{
@@ -17,13 +16,16 @@ const StatusesVisit = (props) => {
         }))
     }
 
-    const statusesTable = statusesVisits.map((status)=>(
+    const statusesTable = statuses_visits.map((status)=>(
         <tr 
             className={table.tableItem} 
             key={status.status_id}
             onClick={()=>popupStatus('right','statuses',status)}
         >
-            <td>{status.status_name}</td>
+            <td style={{display: 'flex',alignItems: 'center'}}>
+                <div style={{width: '10px',height: '10px',background: status.status_color,marginRight: '10px',borderRadius: '50%'}}></div>
+                {status.status_name}
+            </td>
             <td>{status.status_withdraw ? 'Да' : 'Нет'}</td>
             <td>{status.status_pay ? 'Да' : 'Нет'}</td>
             <td>{status.status_visited ? 'Да' : 'Нет'}</td>
