@@ -1,14 +1,13 @@
 import { useState } from "react"
-import styles from '../../styles/students/students.module.css'
-
+import styles from '../../styles/statuses/statuses.module.css'
 import StatusesStudent from "./Statuses/StatusesStudent"
 import StatusesVisit from "./Statuses_visit/StatusesVisit"
 
 const Statuses = (props) => {
     return (
-        <div className={styles.students}>
-          <StatusesStudent statuses={props.statuses}/>
-          <StatusesVisit statuses_visits={props.statuses_visits}/>
+        <div className={styles.statuses}>
+          <StatusesStudent statuses={props.statuses} styles={styles}/>
+          <StatusesVisit statuses_visits={props.statuses_visits} styles={styles}/>
         </div>
     )
 }
