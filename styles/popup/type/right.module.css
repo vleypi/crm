@@ -1,0 +1,18 @@
+.rightPopup{
+    position: fixed;
+    right: 0;
+    width: 400px;
+    height: 100%;
+    background: white;
+    animation: move 0.3s ease;
+    transition: 0.3s;
+}
+
+@keyframes move {
+    0%{
+        transform: translate(400px);
+    }
+    100%{
+        transform: translate(0);
+    }
+}

@@ -3,6 +3,7 @@ import React, { Children } from 'react'
 import Header from '../Header/Header'
 import Nav from '../Nav/Nav'
 import styles from '../../styles/container/container.module.css'
+import Popup from '../Popup/Popup'
 
 const Container = ({titlte,header,children}) => {
     return (
@@ -19,6 +20,7 @@ const Container = ({titlte,header,children}) => {
                         {children}
                     </div>
                 </div>
+                <Popup />
             </div>
         </>
     )

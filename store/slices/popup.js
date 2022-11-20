@@ -4,17 +4,16 @@ import {HYDRATE} from 'next-redux-wrapper'
 export const popupSlice = createSlice({
     name: 'popup',
     initialState: {
-        type: '',
-        content: {
-            type: '',
-            fill: {}
-        }
+        type: 'right',
+        contentType: 'statuses',
+        functions: {}
     },
     reducers: {
         setPopupType: (state,action) =>{
+            console.log(action.payload)
             state.type = action.payload.type
-            state.content.type = action.payload.content.type
-            state.content.fill = action.payload.content.fill
+            state.contentType = action.payload.contentType
+            state.functions = action.payload.functions
         }
     },
     extraReducers: {

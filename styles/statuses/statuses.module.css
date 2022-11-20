@@ -1,0 +1,22 @@
+.statusesComponent:nth-child(2){
+    margin-top: 30px;
+}
+
+.statusesComponent .status_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.statusesComponent .status_title p{
+    font-size: 25px;
+}
+
+.statusesComponent .status_title button{
+    border: 1px rgb(218, 218, 218) solid;
+    padding: 7px 26px;
+    font-size: 16px;
+    background: white;
+    cursor: pointer;
+}
