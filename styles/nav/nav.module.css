@@ -1,0 +1,75 @@
+.nav{
+    background: rgb(44,43,124);
+    height: 100%;
+    width: 340px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.nav .toggleNav{
+    width: 50px;
+    height: 50px;
+    background: rgb(44,43,124);
+    width: 100%;
+}
+
+.nav .links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.nav .links a{
+    width: 200px;
+    height: 50px;
+}
+
+.nav .links a{
+    display: flex;
+    align-items: center;
+    width: 250px;
+    height: 45px;
+    text-decoration: none;
+    color: white;
+    padding: 0 10px;
+    border-radius: 10px;
+}
+
+.nav .links .active{
+    background-color: rgb(75, 74, 145);
+}
+
+.nav .account{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-top: 1px white solid;
+    padding: 10px 30px;
+    -webkit-box-shadow: 0px -4px 8px 0px rgba(34, 60, 80, 0.33);
+-moz-box-shadow: 0px -4px 8px 0px rgba(34, 60, 80, 0.33);
+box-shadow: 0px -4px 8px 0px rgba(34, 60, 80, 0.33);
+}
+
+.nav .account .avatar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.nav .account .accountInfo .name{
+    font-size: 16px;
+    color: white;
+}
+
+.nav .account .accountInfo .permissions{
+    font-size: 14px;
+    color: rgb(169, 169, 255);
+}
