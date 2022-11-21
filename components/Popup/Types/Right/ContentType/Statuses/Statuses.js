@@ -1,4 +1,4 @@
-import statusesPopupStyles from '../../../../../../styles/popup/contentType/statuses/statuses.module.css'
+import popupStyles from '../../../../../../styles/popup/popup.module.css'
 import Select from 'react-select';
 import { useDispatch } from 'react-redux';
 import { useClosePopup } from '../../../../Functions/close';
@@ -73,8 +73,8 @@ const Statuses = ({popup}) => {
 
 
     const checkboxesDiv = functions.checkboxes.map((checkbox,index)=>(
-        <div className={statusesPopupStyles.checkboxContainer} onClick={()=>checkboxHandler(checkbox.type)}>
-            <div className={`${statusesPopupStyles.checkbox} ${functions[checkbox.type] && statusesPopupStyles.checked}` }></div>
+        <div className={popupStyles.checkboxContainer} onClick={()=>checkboxHandler(checkbox.type)}>
+            <div className={`${popupStyles.checkbox} ${functions[checkbox.type] && popupStyles.checked}` }></div>
             <p>{checkbox.text}</p>
         </div>
     ))
@@ -106,36 +106,36 @@ const Statuses = ({popup}) => {
     }
 
     return (
-        <div className={statusesPopupStyles.statuses}> 
-            <div className={statusesPopupStyles.close} onClick={closePopup}>
+        <div className={popupStyles.popupContent}> 
+            <div className={popupStyles.close} onClick={closePopup}>
                 <svg id="cross" width="100%" height="100%" viewBox="0 0 15 16" xmlns="http://www.w3.org/2000/svg"><path fill="#666666" d="M7.678 6.88l5.657-5.656a1 1 0 1 1 1.414 1.414L9.092 8.295l5.657 5.657a1 1 0 1 1-1.414 1.414L7.678 9.709l-5.657 5.657a1 1 0 0 1-1.414-1.414l5.657-5.657L.607 2.638A1 1 0 1 1 2.02 1.224L7.678 6.88z"></path></svg>
             </div>
-            <div className={statusesPopupStyles.name}>
+            <div className={popupStyles.justifyContent}>
                 <p>Название</p>
                 <input 
-                    className={statusesPopupStyles.input} 
+                    className={popupStyles.input} 
                     value={functions.status_name}
                     onChange={inputHandler}
                     name="status_name"
                 />
             </div>
-            <div className={statusesPopupStyles.color}>
+            <div className={popupStyles.justifyContent}>
                 <p>Цвет</p>
                 <Select 
                     options={colourOptions}
                     placeholder={colourOptions[0]}
-                    className={statusesPopupStyles.select}
+                    className={popupStyles.select}
                     styles={colorStyles}
                     value={functions.status_color}
                     onChange={selectHandler}
                 />
             </div>
-            <div className={statusesPopupStyles.checkboxes}>
+            <div className={popupStyles.checkboxes}>
                 {checkboxesDiv}
             </div>
-            <div className={statusesPopupStyles.buttons}>
-                <button className={statusesPopupStyles.save} onClick={setStatuses}>{status_id ? 'Сохранить' : 'Добавить'}</button>
-                {status_id && <button className={statusesPopupStyles.delete} onClick={deleteStatuses}>Удалить</button>}
+            <div className={popupStyles.buttons}>
+                <button className={popupStyles.save} onClick={setStatuses}>{status_id ? 'Сохранить' : 'Добавить'}</button>
+                {status_id && <button className={popupStyles.delete} onClick={deleteStatuses}>Удалить</button>}
             </div>
         </div>
     )

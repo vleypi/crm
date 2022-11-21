@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Select from 'react-select'
 import { setPopupType } from '../../../../store/slices/popup'
 
-const StudentsFilter = ({toolsStyles}) => {
+const TeachersFilter = ({toolsStyles}) => {
 
     const dispatch = useDispatch()
     const lessonsState = useSelector(({lessons})=>lessons)
@@ -26,7 +26,7 @@ const StudentsFilter = ({toolsStyles}) => {
     const popupHandler = () =>{
         dispatch(setPopupType({
             type: 'right',
-            contentType: 'students',
+            contentType: 'teachers',
             functions: {
                 lesson_id: ''
             }
@@ -87,4 +87,4 @@ const StudentsFilter = ({toolsStyles}) => {
     )
 }
 
-export default StudentsFilter
+export default TeachersFilter
