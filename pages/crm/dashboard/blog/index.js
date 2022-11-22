@@ -1,13 +1,22 @@
 import { useMemo } from "react"
+import BlogCrm from "../../../../components/BlogCrm/Blog"
 import Container from "../../../../components/Container/Container"
 
-const Main = () =>{
+const Blog = () =>{
 
     return(
         <Container title='Блог' header='Блог'>
-            <h1>Блог</h1>
+            <BlogCrm />
         </Container>
     )
 }
 
-export default Main
+export default Blog
+
+export const getServerSideProps = async (ctx) => {
+    return {
+        props: {
+
+        }
+    }
+}

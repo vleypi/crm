@@ -1,0 +1,68 @@
+.blog{
+
+}
+
+.blog .header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.blog .header p{
+    font-size: 25px;
+}
+
+
+.blog .headerPost h2{
+    font-family: 'Montserrat';
+    color: #2f5dc0;
+}
+
+.blog .blogs{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+}
+
+.blog .blogs .post{
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+}
+
+.blog .blogs .post:hover{
+    background: rgba(255, 255, 255, 0.493);
+}
+
+.blog .blogs .post .mainImgPost{
+    display: flex;
+    align-items: center;
+    width: 300px;
+    
+}
+
+.blog .blogs .post .mainImgPost img{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.blog .blogs .post .headerPost{
+    padding: 10px;
+}
+
+.blog button{
+    border: 1px rgb(218, 218, 218) solid;
+    font-size: 14px;
+    padding: 10px 25px;
+    background: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+.blog button:hover{
+    border: 1px solid rgb(136, 136, 136);
+}

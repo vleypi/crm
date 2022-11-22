@@ -1,12 +1,14 @@
 import { useRouter } from 'next/router'
-import {useState} from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Select from 'react-select'
 import { useClosePopup } from '../../../../Functions/close'
 import popupStyles from '../../../../../../styles/popup/popup.module.css'
+import { setUser } from '../../../../../../controllers/authController/authController'
+import { setPopupType } from '../../../../../../store/slices/popup'
 
 
-const Teachers = ({popup}) =>{
+const Teacher = ({popup}) =>{
 
     const dispatch = useDispatch()
     const {closePopup} = useClosePopup()
@@ -30,7 +32,8 @@ const Teachers = ({popup}) =>{
         gender,
         phone,
         email,
-        password
+        password,
+        role: "Педагог"
     })
 
     const inputHandler = (e) =>{
@@ -41,13 +44,19 @@ const Teachers = ({popup}) =>{
         setFunctions({...functions,[select]: e.value})
     }
 
+    const setUsers = async () =>{
+        await setUser(functions)
+        dispatch(setPopupType({type: ''}))
+        router.replace(router.asPath)
+    }
+
     return(
         <div className={popupStyles.popupContent}>
             <div className={popupStyles.close} onClick={closePopup}>
                 <svg id="cross" width="100%" height="100%" viewBox="0 0 15 16" xmlns="http://www.w3.org/2000/svg"><path fill="#666666" d="M7.678 6.88l5.657-5.656a1 1 0 1 1 1.414 1.414L9.092 8.295l5.657 5.657a1 1 0 1 1-1.414 1.414L7.678 9.709l-5.657 5.657a1 1 0 0 1-1.414-1.414l5.657-5.657L.607 2.638A1 1 0 1 1 2.02 1.224L7.678 6.88z"></path></svg>
             </div>
             <div className={popupStyles.justifyContent}>
-                <p>Педагог</p>
+                <p>Ученик</p>
             </div>
             <div className={popupStyles.justifyContent}>
                 <p>Статус</p>
@@ -89,7 +98,6 @@ const Teachers = ({popup}) =>{
             <div className={popupStyles.justifyContent}>
                 <p>Телефон</p>
                 <input 
-                    type="number"
                     name='phone'
                     className={popupStyles.input}
                     onChange={inputHandler}
@@ -107,10 +115,10 @@ const Teachers = ({popup}) =>{
                 />
             </div>
             <div className={popupStyles.buttons}>
-                <button className={popupStyles.save}>Добавить</button>
+                <button className={popupStyles.save} onClick={setUsers}>Добавить</button>
             </div>
         </div>
     )
 }
 
-export default Teachers
+export default Teacher
