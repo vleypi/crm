@@ -4,9 +4,8 @@ import table from '../../styles/table/table.module.css'
 
 const Students = (props) => {
 
-    const [students,setStudents] = useState(props.students)
 
-    const studentsTable = students.map((student)=>(
+    const studentsTable = props.students.map((student)=>(
         <tr className={table.tableItem} key={student.user_id}>
             <td>{student.name}</td>
             <td>{student.phone ? student.phone : 'Не указан'}</td>

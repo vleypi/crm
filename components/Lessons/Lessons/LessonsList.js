@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import { useSelector } from 'react-redux'
 import table from '../../../styles/table/table.module.css'
+import Nothing from '../../Table/Nothing/Nothing'
 
 
 const LessonsList = (props) => {
@@ -55,6 +56,7 @@ const LessonsList = (props) => {
               <tbody>
                   {lessonsTable}
               </tbody>
+              
             </table>
         </div>
     )

@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import React from 'react'
+import {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Select from 'react-select'
 import { useClosePopup } from '../../../../Functions/close'
@@ -13,13 +13,33 @@ const Teachers = ({popup}) =>{
     const router = useRouter()
 
     const {
+        user_id='',
+        name='',
+        gender='',
+        phone='',
+        email='',
+        password='',
+        genders=[{value: 'Мужской',label: 'Мужской'},{value: 'Женский', label: 'Женский'}],
+        statuses=[{value: 1,label: "Активный"},{value: 2,label: "В архиве"}]
+    } = popup.functions
+
+    const [functions,setFunctions] = useState({
         user_id,
         name,
+        status: 1,
         gender,
         phone,
         email,
         password
-    } = popup.functions
+    })
+
+    const inputHandler = (e) =>{
+        setFunctions({...functions,[e.target.name]: e.target.value})
+    }
+
+    const selectHandler = (e,select) =>{
+        setFunctions({...functions,[select]: e.value})
+    }
 
     return(
         <div className={popupStyles.popupContent}>
@@ -33,36 +53,57 @@ const Teachers = ({popup}) =>{
                 <p>Статус</p>
                 <Select 
                     className={popupStyles.select}
+                    placeholder={''}
+                    options={statuses}
+                    onChange={(e)=>selectHandler(e,'status')}
+                    noOptionsMessage={() => 'Нет вариантов'}
                 />
             </div>
             <div className={popupStyles.justifyContent}>
                 <p>ФИО</p>
                 <input 
+                    name='name'
                     className={popupStyles.input}
+                    onChange={inputHandler}
+                    value={functions.name}
                 />
             </div>
             <div className={popupStyles.justifyContent}>
                 <p>Email</p>
                 <input 
+                    name='email'
                     className={popupStyles.input}
+                    onChange={inputHandler}
+                    value={functions.email}
                 />
             </div>
             <div className={popupStyles.justifyContent}>
                 <p>Пароль</p>
                 <input 
+                    name='password'
                     className={popupStyles.input}
+                    onChange={inputHandler}
+                    value={functions.password}
                 />
             </div>
             <div className={popupStyles.justifyContent}>
                 <p>Телефон</p>
                 <input 
+                    type="number"
+                    name='phone'
                     className={popupStyles.input}
+                    onChange={inputHandler}
+                    value={functions.phone}
                 />
             </div>
             <div className={popupStyles.justifyContent}>
                 <p>Пол</p>
                 <Select 
                     className={popupStyles.select}
+                    placeholder={''}
+                    options={genders}
+                    onChange={(e)=>selectHandler(e,'gender')}
+                    noOptionsMessage={() => 'Нет вариантов'}
                 />
             </div>
             <div className={popupStyles.buttons}>

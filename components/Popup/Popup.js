@@ -11,8 +11,6 @@ const Popup = () => {
     const popupRef = useRef()
 
     const clickHandler = (e) =>{
-
-        console.log(2)
         if(e.target == popupRef.current){
             dispatch(setPopupType({type: '',content: {type: '',functions: {}}}))
         }

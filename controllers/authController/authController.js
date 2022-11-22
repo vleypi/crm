@@ -15,6 +15,24 @@ export const login = async (inputValues,dispatch,router) =>{
     }
 }
 
+export const setUser = async (functions) =>{
+    try{
+        console.log(functions)
+        const res = await axios.post('http://localhost:5001/api/auth/setUser',{
+            status: functions.status,
+            gender: functions.gender,
+            phone: functions.phone,
+            email: functions.email,
+            password: functions.password,
+            name: functions.name,
+            role: functions.role
+        }, {withCredentials: true})
+    }
+    catch(err){
+        return err.response.data
+    }
+}
+
 export const auth = async (dispatch) =>{
     try{
         const res = await axios.post('http://localhost:5001/api/user/auth', {},{
