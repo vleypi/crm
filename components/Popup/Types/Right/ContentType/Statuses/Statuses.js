@@ -128,6 +128,7 @@ const Statuses = ({popup}) => {
                     styles={colorStyles}
                     value={functions.status_color}
                     onChange={selectHandler}
+                    noOptionsMessage={() => 'Нет вариантов'}
                 />
             </div>
             <div className={popupStyles.checkboxes}>

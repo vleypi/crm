@@ -129,6 +129,7 @@ const Lessons = ({popup}) => {
                     options={studentsTeachers.lesson_students}
                     onChange={(e)=>selectHandler(e,'lesson_students')}
                     isMulti
+                    noOptionsMessage={() => 'Нет вариантов'}
                 />
             </div>
             <div className={popupStyles.justifyContent}>
@@ -137,7 +138,8 @@ const Lessons = ({popup}) => {
                     className={popupStyles.select}
                     placeholder={''}
                     options={studentsTeachers.lesson_teachers}
-                    onChange={(e)=>selectHandler(e,'lessons_teachers')}
+                    onChange={(e)=>selectHandler([e],'lesson_teachers')}
+                    noOptionsMessage={() => 'Нет вариантов'}
                 />
             </div>
             <div className={popupStyles.buttons}>
