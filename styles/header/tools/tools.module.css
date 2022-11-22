@@ -17,7 +17,7 @@
 
 .tools .inputTool{
     border: 1px solid transparent;
-    width: 15%;
+    width: 25%;
 }
 
 .tools .inputTool input{
@@ -42,7 +42,7 @@
     border: 0px solid transparent;
 }
 .tools .selectTool{
-    width: 10%;
+    width: 15%;
 }
 .tools .selectTool div{
     font-size: 14px;
