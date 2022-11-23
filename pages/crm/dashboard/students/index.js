@@ -4,7 +4,6 @@ import StudentsComponent from '../../../../components/Students/Students'
 import { getStudents } from '../../../../controllers/pagesController/getStudents'
 
 const Students = ({students}) => {
-    console.log(1)
     return (
         <Container titlte='Ученики' header='Ученики'>
             <StudentsComponent students={students}/>
