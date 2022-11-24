@@ -1,9 +1,10 @@
 import React from 'react'
 import Container from '../../../../../components/Container/Container'
 
-const Student = ({students}) => {
+
+const Student = () => {
     return (
-        <Container titlte='Ученики' header='Ученики'>
+        <Container titlte='Профиль ученика' header='Профиль ученика'>
             
         </Container>
     )
@@ -12,9 +13,10 @@ const Student = ({students}) => {
 export default Student
 
 export const getServerSideProps = async (ctx) => {
-   return{
-        props: {
-
+    return {
+        redirect: {
+            permanent: false,
+            destination: "/crm/dashboard/students/"+ctx.params.user_id+"/lessons",
         }
-   }
+    }
 }
