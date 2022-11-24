@@ -43,6 +43,8 @@ const Lessons = ({popup}) => {
         lesson_teachers=[]
     } = popup.functions
 
+    console.log(popup.functions)
+
     const [studentsTeachers,setStudentsTeachers] = useState({
         lessons_students: [],
         lessons_teachers: []
@@ -57,6 +59,7 @@ const Lessons = ({popup}) => {
         lesson_students,
         lesson_teachers,
     })
+    
 
     const inputHandler = (e) =>{
         setFunctions({...functions,[e.target.name]: e.target.value})
@@ -109,6 +112,7 @@ const Lessons = ({popup}) => {
                     name='lesson_name'
                     className={popupStyles.input}
                     onChange={inputHandler}
+                    value={functions.lesson_name}
                 />
             </div>
             <div className={popupStyles.justifyContent}>
@@ -121,27 +125,31 @@ const Lessons = ({popup}) => {
                     onChange={(e)=>selectHandler(e,'lesson_color')}
                 />
             </div>
-            <div className={popupStyles.justifyContent}>
-                <p>Ученики</p>
-                <Select 
-                    className={popupStyles.select}
-                    placeholder={''}
-                    options={studentsTeachers.lesson_students}
-                    onChange={(e)=>selectHandler(e,'lesson_students')}
-                    isMulti
-                    noOptionsMessage={() => 'Нет вариантов'}
-                />
-            </div>
-            <div className={popupStyles.justifyContent}>
-                <p>Педагоги</p>
-                <Select 
-                    className={popupStyles.select}
-                    placeholder={''}
-                    options={studentsTeachers.lesson_teachers}
-                    onChange={(e)=>selectHandler([e],'lesson_teachers')}
-                    noOptionsMessage={() => 'Нет вариантов'}
-                />
-            </div>
+            {!lesson_id &&
+                <>
+                    <div className={popupStyles.justifyContent}>
+                        <p>Ученики</p>
+                        <Select 
+                            className={popupStyles.select}
+                            placeholder={''}
+                            options={studentsTeachers.lesson_students}
+                            onChange={(e)=>selectHandler(e,'lesson_students')}
+                            isMulti
+                            noOptionsMessage={() => 'Нет вариантов'}
+                        />
+                    </div>
+                    <div className={popupStyles.justifyContent}>
+                        <p>Педагоги</p>
+                        <Select 
+                            className={popupStyles.select}
+                            placeholder={''}
+                            options={studentsTeachers.lesson_teachers}
+                            onChange={(e)=>selectHandler([e],'lesson_teachers')}
+                            noOptionsMessage={() => 'Нет вариантов'}
+                        />
+                    </div>
+                </>
+            }
             <div className={popupStyles.buttons}>
                 <button onClick={setLesson} className={popupStyles.save}>Добавить</button>
             </div>

@@ -1,11 +1,14 @@
-import { useState } from 'react'
-import styles from '../../styles/students/students.module.css'
+
+
 import table from '../../styles/table/table.module.css'
+import { useRouter } from 'next/router'
 
 const Teachers = (props) => {
 
+    const router = useRouter()
+
     const teachersTable = props.teachers.map((teacher)=>(
-        <tr className={table.tableItem} key={teacher.user_id}>
+        <tr className={table.tableItem} key={teacher.user_id} onClick={()=>router.push('teachers/'+teacher.user_id)}>
             <td>{teacher.name}</td>
             <td>{teacher.phone ? teacher.phone : 'Не указан'}</td>
             <td>{teacher.balance}</td>
@@ -15,7 +18,7 @@ const Teachers = (props) => {
     ))
 
     return (
-        <div className={styles.students}>
+        <div>
             <table className={table.commonTable}>
                 <thead>
                     <tr>

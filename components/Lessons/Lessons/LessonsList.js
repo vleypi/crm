@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import {useState} from 'react'
 import { useSelector } from 'react-redux'
 import table from '../../../styles/table/table.module.css'
@@ -7,6 +8,8 @@ import Nothing from '../../Table/Nothing/Nothing'
 const LessonsList = (props) => {
 
     const styles = props.styles
+
+    const router = useRouter()
 
     const lessonsState = useSelector((lesson)=>lesson.lessons)
     function getNoun(number, one, two, five) {
@@ -28,7 +31,7 @@ const LessonsList = (props) => {
     const lesson_types = ['Группа','Индивидуальные занятия']
     
     const lessonsTable = props.lessons.map((lesson,index)=>(
-      <tr className={table.tableItem} key={lesson.status_id}>
+      <tr className={table.tableItem} key={lesson.status_id} onClick={()=>router.push('lessons/'+lesson.lesson_id)}>
             <td style={{display: 'flex',alignItems: 'center'}}>
                 <div style={{width: '10px',height: '10px',background: lesson.lesson_color,marginRight: '10px',borderRadius: '50%'}}></div>
                 {lesson.lesson_name}

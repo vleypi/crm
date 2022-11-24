@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router'
 import styles from '../../../../../styles/profile/lessonsProfile.module.css'
 
-const Lessons = ({student,lessons}) =>{
 
+const Lessons = ({teacher,lessons}) =>{
     const lesson_types = ['Групповые занятия','Индивидуальные занятия']
     
     const router = useRouter()

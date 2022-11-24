@@ -1,0 +1,52 @@
+.lessons{
+    margin: 30px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex: 1 1 auto;
+}
+
+.lessons .lesson{
+    width: 250px;
+    height: 250px;
+    padding: 20px;
+}
+
+.lessons .lesson:hover{
+    background: rgba(255, 255, 255, 0.644);
+    cursor: pointer;
+}
+
+.lessons .lesson .lesson_name{
+    font-size: 21px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.lessons .lesson .lesson_type{
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.lessons .lesson{
+    background: white;
+}
+
+.lessons .lesson .amountStudents{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+}
+
+.lessons .lesson .amountStudents svg{
+    width: 30px;
+}
+
+
+.lessons .lesson .amountStudents p{
+    font-size: 50px;
+    margin-left: 10px;
+    color: #5756c7;
+}

@@ -25,7 +25,8 @@ export const setUser = async (functions) =>{
             email: functions.email,
             password: functions.password,
             name: functions.name,
-            role: functions.role
+            role: functions.role,
+            user_id: functions.user_id || null
         }, {withCredentials: true})
     }
     catch(err){

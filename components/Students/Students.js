@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import styles from '../../styles/students/students.module.css'
 import table from '../../styles/table/table.module.css'
 import {useRouter} from 'next/router'
 
@@ -18,7 +17,7 @@ const Students = (props) => {
     ))
 
     return (
-        <div className={styles.students}>
+        <div>
             <table className={table.commonTable}>
                 <thead>
                     <tr>
