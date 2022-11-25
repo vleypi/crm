@@ -20,12 +20,16 @@
     "nookies": "^2.5.2",
     "proxy-from-env": "^1.1.0",
     "react": "^18.2.0",
+    "react-calendar": "^4.0.0",
+    "react-calendar-timeline": "^0.28.0",
+    "react-date-range": "^1.4.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-select": "^5.6.1",
     "react-table": "^7.8.0",
     "react-textarea-autosize": "^8.4.0",
     "react-transition-group": "^4.4.5",
-    "redux": "^4.2.0"
+    "redux": "^4.2.0",
+    "slide-daterange-picker": "^0.1.8"
   }
 }

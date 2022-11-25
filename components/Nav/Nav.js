@@ -8,11 +8,12 @@ const Nav = () =>{
     const router = useRouter()
 
     const links = [
-        {text: 'Блог',href: '/crm/dashboard/blog'},
+        {text: 'Посещения',href: '/crm/dashboard/visits'},
         {text: 'Ученики', href: '/crm/dashboard/students'},
         {text: 'Педагоги', href: '/crm/dashboard/teachers'},
         {text: 'Статусы', href: '/crm/dashboard/statuses'},
         {text: 'Занятия',href: '/crm/dashboard/lessons'},
+        {text: 'Блог',href: '/crm/dashboard/blog'}
     ].map((link)=>(
         <Link href={link.href} ><a className={router.pathname === link.href && styles.active}>{link.text}</a></Link>
     ))
