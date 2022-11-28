@@ -26,6 +26,16 @@
     "react-table": "^7.8.0",
     "react-textarea-autosize": "^8.4.0",
     "react-transition-group": "^4.4.5",
-    "redux": "^4.2.0"
+    "redux": "^4.2.0",
+    "@devexpress/dx-react-core": "3.0.4",
+    "@devexpress/dx-react-scheduler": "3.0.4",
+    "@devexpress/dx-react-scheduler-material-ui": "3.0.4",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.0.4",
+    "@mui/lab": "^5.0.0-alpha.51",
+    "@mui/material": "^5.0.4",
+    "@mui/x-date-pickers": "^5.0.0-alpha.7",
+    "moment": "^2.29.4"
   }
 }
