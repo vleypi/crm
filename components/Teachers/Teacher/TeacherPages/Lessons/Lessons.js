@@ -20,7 +20,11 @@ const Lessons = ({teacher,lessons}) =>{
     
     return(
         <div className={styles.lessons}>
-            {lessons_list}
+             {lessons_list.length ? lessons_list : 
+                <div style={{width: '100%',height: "300px",background: 'white', display: 'flex',justifyContent: 'center',alignItems: 'center'}}>
+                    Нет занятий
+                </div>
+            }
         </div>
     )
 }

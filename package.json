@@ -20,6 +20,9 @@
     "nookies": "^2.5.2",
     "proxy-from-env": "^1.1.0",
     "react": "^18.2.0",
+    "react-calendar": "^4.0.0",
+    "react-calendar-timeline": "^0.28.0",
+    "react-date-range": "^1.4.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-select": "^5.6.1",
@@ -27,6 +30,7 @@
     "react-textarea-autosize": "^8.4.0",
     "react-transition-group": "^4.4.5",
     "redux": "^4.2.0",
+<<<<<<< HEAD
     "@devexpress/dx-react-core": "3.0.4",
     "@devexpress/dx-react-scheduler": "3.0.4",
     "@devexpress/dx-react-scheduler-material-ui": "3.0.4",
@@ -37,5 +41,8 @@
     "@mui/material": "^5.0.4",
     "@mui/x-date-pickers": "^5.0.0-alpha.7",
     "moment": "^2.29.4"
+=======
+    "slide-daterange-picker": "^0.1.8"
+>>>>>>> ab4c4ad1be52a191dd83f83a4f10f2db692fe96c
   }
 }

@@ -62,7 +62,8 @@ const Students = ({popup}) =>{
                 <p>Статус</p>
                 <Select 
                     className={popupStyles.select}
-                    placeholder={''}
+                    placeholder={statuses[functions.status - 1]}
+                    value={statuses[functions.status - 1]}
                     options={statuses}
                     onChange={(e)=>selectHandler(e,'status')}
                     noOptionsMessage={() => 'Нет вариантов'}
@@ -93,6 +94,7 @@ const Students = ({popup}) =>{
                     className={popupStyles.input}
                     onChange={inputHandler}
                     value={functions.password}
+                    type="password"
                 />
             </div>
             <div className={popupStyles.justifyContent}>
@@ -108,7 +110,7 @@ const Students = ({popup}) =>{
                 <p>Пол</p>
                 <Select 
                     className={popupStyles.select}
-                    placeholder={''}
+                    placeholder={functions.gender}
                     options={genders}
                     onChange={(e)=>selectHandler(e,'gender')}
                     noOptionsMessage={() => 'Нет вариантов'}
