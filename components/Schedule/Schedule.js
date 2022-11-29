@@ -18,6 +18,29 @@ import { useRouter, withRouter } from 'next/router';
 import { deleteAppointment } from '../../controllers/scheduleController/deleteAppointment';
 import { changeAppointment } from '../../controllers/scheduleController/changeAppointment';
 
+import Link from 'next/link';
+
+const headerComponent = (props,lessons) =>{
+
+  const link = lessons.find(lesson=>lesson.id == props.appointmentData.lesson_id).lesson_link
+
+  return(
+    <div style={{display: 'flex',flexDirection: 'column'}}>
+      <Link href="/">
+        <a style={{
+          width: '100%',
+          background: lessons.find(lesson=>lesson.id == props.appointmentData.lesson_id).color,
+          display: 'flex',
+          justifyContent: 'center',
+          height: '40px',
+          alignItems: 'center',
+          color: 'white'
+        }}>Открыть</a>
+      </Link>
+      <a style={{padding: '15px 20px 0 20px'}} href={link} target="_blank">Урок в Zoom - {link.substring(0,20)}...</a>
+    </div>
+  )
+}
 
 const Schedule = (props) =>{
 
@@ -53,7 +76,8 @@ const Schedule = (props) =>{
       fieldName: 'lesson_id',
       title: 'Lessons',
       allowMultiple: false,
-      instances: props.lessons
+      instances: props.lessons,
+      
     }
   ]
 
@@ -69,6 +93,7 @@ const Schedule = (props) =>{
           
           <EditingState
             onCommitChanges={commitChanges}
+            
           />
           <WeekView
             startDayHour={9}
@@ -80,6 +105,7 @@ const Schedule = (props) =>{
           <Appointments />
           <Resources data={resources} />
           <AppointmentTooltip
+            headerComponent={(e)=>headerComponent(e,resources[0].instances)}
             showDeleteButton
             showOpenButton
           />

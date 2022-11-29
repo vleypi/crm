@@ -40,10 +40,10 @@ const Lessons = ({popup}) => {
         lesson_color='#f44336',
         lesson_status='',
         lesson_students=[],
-        lesson_teachers=[]
+        lesson_teachers=[],
+        lesson_link=""
     } = popup.functions
 
-    console.log(popup.functions)
 
     const [studentsTeachers,setStudentsTeachers] = useState({
         lessons_students: [],
@@ -58,6 +58,7 @@ const Lessons = ({popup}) => {
         lesson_color: colorOptions[colorOptions.findIndex(color=>color.color === lesson_color)],
         lesson_students,
         lesson_teachers,
+        lesson_link
     })
     
 
@@ -150,8 +151,19 @@ const Lessons = ({popup}) => {
                     </div>
                 </>
             }
+            <div className={popupStyles.justifyContent}>
+                <p>Zoom</p>
+                <input 
+                    name='lesson_link'
+                    className={popupStyles.input}
+                    onChange={inputHandler}
+                    value={functions.lesson_link}
+                />
+            </div>
             <div className={popupStyles.buttons}>
-                <button onClick={setLesson} className={popupStyles.save}>Добавить</button>
+                <button onClick={setLesson} className={popupStyles.save}>
+                    {lesson_id ? 'Сохранить' : 'Добавить'}
+                </button>
             </div>
         </div>
     )

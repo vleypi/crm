@@ -9,7 +9,8 @@ export const setLessons = async (functions) =>{
             lesson_id: functions.lesson_id,
             lesson_type: functions.lesson_type,
             lesson_students: functions.lesson_students,
-            lesson_teachers: functions.lesson_teachers
+            lesson_teachers: functions.lesson_teachers,
+            lesson_link: functions.lesson_link
         }, {withCredentials: true})
         return res.data
     }
