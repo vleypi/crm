@@ -11,6 +11,9 @@ import {
   AllDayPanel,
   ConfirmationDialog,
   Resources,
+  TodayButton,
+  DateNavigator,
+  Toolbar
 } from '@devexpress/dx-react-scheduler-material-ui';
 
 import {addAppointment} from '../../controllers/scheduleController/addAppointment'
@@ -22,11 +25,15 @@ import Link from 'next/link';
 
 const headerComponent = (props,lessons) =>{
 
-  const link = lessons.find(lesson=>lesson.id == props.appointmentData.lesson_id).lesson_link
+  const {lesson_id,endDate} = props.appointmentData
 
+  const link = lessons.find(lesson=>lesson.id == lesson_id).lesson_link
+
+  const date = new Date(endDate)
+  
   return(
     <div style={{display: 'flex',flexDirection: 'column'}}>
-      <Link href="/">
+      <Link href={`/crm/dashboard/schedule/visits?lesson_id=${lesson_id}&day=${date.getDate()}&month=${date.getMonth()}&year=${date.getFullYear()}`}>
         <a style={{
           width: '100%',
           background: lessons.find(lesson=>lesson.id == props.appointmentData.lesson_id).color,
@@ -35,7 +42,7 @@ const headerComponent = (props,lessons) =>{
           height: '40px',
           alignItems: 'center',
           color: 'white'
-        }}>Открыть</a>
+        }}>Открыть посещения...</a>
       </Link>
       <a style={{padding: '15px 20px 0 20px'}} href={link} target="_blank">Урок в Zoom - {link.substring(0,20)}...</a>
     </div>
@@ -48,13 +55,15 @@ const Schedule = (props) =>{
 
   const data = props.appointments
 
-  const currentDate = new Date()
+  const [currentDate,setCurrentDate] = React.useState(new Date())
 
   const commitChanges = async ({ added, changed, deleted }) => {
 
     if(added){
-      await addAppointment(added)
-      router.replace(router.asPath)
+      if(added.lesson_id  && added.title){
+        await addAppointment(added)
+        router.replace(router.asPath)
+      }
     }
 
     else if(changed){
@@ -85,10 +94,11 @@ const Schedule = (props) =>{
     <Paper style={{position: 'absolute',top: 0, left: 0}}>
         <Scheduler
           data={data}
-          height={960}
+          height={'100%'}
         >
           <ViewState
             currentDate={currentDate}
+            onCurrentDateChange={setCurrentDate}
           />
           
           <EditingState
@@ -102,6 +112,9 @@ const Schedule = (props) =>{
           <AllDayPanel />
           <EditRecurrenceMenu />
           <ConfirmationDialog />
+          <Toolbar />
+          <DateNavigator />
+          <TodayButton />
           <Appointments />
           <Resources data={resources} />
           <AppointmentTooltip

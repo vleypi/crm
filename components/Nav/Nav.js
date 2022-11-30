@@ -9,7 +9,6 @@ const Nav = () =>{
 
     const links = [
         {text: 'Расписание',href: '/crm/dashboard/schedule'},
-        {text: 'Посещения',href: '/crm/dashboard/visits'},
         {text: 'Ученики', href: '/crm/dashboard/students'},
         {text: 'Педагоги', href: '/crm/dashboard/teachers'},
         {text: 'Статусы', href: '/crm/dashboard/statuses'},
