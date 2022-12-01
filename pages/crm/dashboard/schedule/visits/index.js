@@ -4,10 +4,15 @@ import { getVisits } from '../../../../../controllers/pagesController/getVisits'
 
 
 const Schedule = (props) => {
-    console.log(props)
     return (
         <Container titlte={'Посещения'} header={'Посещение'}>
-            <Visits lesson={props.lesson} participants={props.participants}/>
+            <Visits 
+                lesson={props.lesson} 
+                participants={props.participants} 
+                statuses_visits={props.statuses_visits} 
+                visits_users={props.visits_users}
+                visit_id={props.visit_id}
+            />
         </Container>
     )
 }

@@ -43,12 +43,14 @@ export const auth = async (dispatch) =>{
         // dispatch(setPreloader({preloader: false}))
     }
     catch(err){
-        if(err.response.data.message === 'UnauthorizedToken'){
-            dispatch(setProfile({name: null,surname: null,email: null,user_id: null,phone: null,role: null,token: null}))
-            // dispatch(setPreloader({preloader: false}))
-        }
-        else if(err.response.data.message === 'Unauthorized'){
-            refreshTokenAuth(auth,dispatch)
+        if(err.response){
+            if(err.response.data.message === 'UnauthorizedToken'){
+                dispatch(setProfile({name: null,surname: null,email: null,user_id: null,phone: null,role: null,token: null}))
+                // dispatch(setPreloader({preloader: false}))
+            }
+            else if(err.response.data.message === 'Unauthorized'){
+                refreshTokenAuth(auth,dispatch)
+            }
         }
     }
 }

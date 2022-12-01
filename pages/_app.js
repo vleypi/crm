@@ -1,4 +1,5 @@
 import '../styles/global.css'
+
 import store from '../store/store'
 import AuthProvider from '../auth/AuthLayout'
 import { Provider } from 'react-redux'

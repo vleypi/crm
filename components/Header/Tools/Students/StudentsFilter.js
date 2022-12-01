@@ -52,7 +52,7 @@ const StudentsFilter = ({toolsStyles}) => {
     return (
         <div className={toolsStyles.tools}>
             <div className={toolsStyles.mainTools}>
-                <div className={toolsStyles.inputTool}>
+                {/* <div className={toolsStyles.inputTool}>
                     <input placeholder='Поиск имени' onChange={inputHandler}/>
                 </div>
                 <div className={toolsStyles.inputTool}>
@@ -78,7 +78,7 @@ const StudentsFilter = ({toolsStyles}) => {
                         options={lessons_type_options}
                         onChange={(e)=>selectFilter(e,'status')}
                     />
-                </div>
+                </div> */}
             </div>
             <div className={toolsStyles.buttonTool}>
                 <button onClick={popupHandler}>Добавить</button>
