@@ -1,0 +1,54 @@
+.info{
+    display: flex;
+}
+
+.info p{
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.students,.teachers{
+    margin-top: 30px;
+}
+
+.studentsTitle,.teachersTitle{
+    font-size: 22px;
+}
+
+.studentsContainer,.teachersContainer{
+    margin-top: 10px;
+    width: 50%;
+}
+
+.student,.teacher{
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.studentLink,.teacherLink{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.avatar{
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px gray solid;
+    border-radius: 50%;
+    background: white;
+}
+
+.select{
+    width: 40%
+}
+
+.select div{
+    font-size: 14px;
+}
