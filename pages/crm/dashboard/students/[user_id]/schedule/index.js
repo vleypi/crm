@@ -5,21 +5,22 @@ import Profile from '../../../../../../components/Container/profilesContainer/Pr
 import Schedule from '../../../../../../components/Students/Student/StudentPages/Schedule/Schedule'
 
 
-const Student = ({student,appointments}) => {
-    console.log(appointments)
+const Student = (props) => {
+
     return (
         <Container titlte='Профиль ученика' header='Профиль ученика'>
             <Profile 
-                student={student} 
+                user={props.student} 
+                page={'students'}
                 component={{
-                    addInfo: student.phone, 
-                    name: student.name, 
-                    avatar: student.name[0],
+                    addInfo: props.student.phone, 
+                    name: props.student.name, 
+                    avatar: props.student.name[0],
                     popup_type: 'students',
-                    functions: student
+                    functions: props.student
                 }}
             >
-                <Schedule appointments={appointments}/>
+                <Schedule appointments={props.appointments} lessons={props.lessons}/>
             </Profile>
         </Container>
     )

@@ -88,7 +88,7 @@ const Schedule = (props) =>{
 
   const [currentDate,setCurrentDate] = React.useState(new Date())
 
-  console.log(data)
+
   return(
     <Paper style={{marginTop: 35}}>
         <Scheduler

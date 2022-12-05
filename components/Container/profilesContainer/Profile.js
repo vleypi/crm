@@ -9,14 +9,11 @@ const Profile = (props) =>{
     const router = useRouter()
     const dispatch = useDispatch()
 
-    console.log(props)
+    console.log(router)
 
     const links = [
-        {text: 'Занятия',href: `/crm/dashboard/students/${'wqeqw'}/lessons`},
-        {text: 'Адонементы', href: '/crm/dashboard/students'},
-        {text: 'Расписание', href: '/crm/dashboard/teachers'},
-        {text: 'Платежи', href: '/crm/dashboard/statuses'},
-        {text: 'Посещения',href: '/crm/dashboard/lessons'}
+        {text: 'Занятия',href: `/crm/dashboard/${props.page}/${props.user.user_id}/lessons`},
+        {text: 'Расписание', href:  `/crm/dashboard/${props.page}/${props.user.user_id}/schedule`},
     ].map((link)=>(
         <Link href={link.href} ><a className={router.asPath === link.href && styles.active}>{link.text}</a></Link>
     ))

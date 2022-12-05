@@ -10,7 +10,8 @@ const TeacherLessons = ({teacher,lessons}) => {
     return (
         <Container titlte='Профиль педагога' header='Профиль педагога'>
             <Profile 
-                teachert={teacher} 
+                user={teacher} 
+                page={'teachers'}
                 component={{
                     addInfo: teacher.phone, 
                     name: teacher.name, avatar: 
