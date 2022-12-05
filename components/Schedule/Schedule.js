@@ -113,12 +113,9 @@ const SelectComponent = (props) =>{
 
 const rRule = (date,onFieldChange) =>{
 
-  console.log(onFieldChange)
-
   const rule = new RRule({
     freq: RRule.WEEKLY,
     interval: 1,
-    byweekday: [RRule.MO, RRule.FR],
     until: date.$d
   })
 
@@ -224,6 +221,12 @@ const EditRecurrenceMenuLayout = (props) =>{
         </div>
       </div>
     )
+}
+
+const WeeklySelect = () =>{
+  return(
+    <></>
+  )
 }
 
 const Schedule = (props) =>{
@@ -340,6 +343,7 @@ const Schedule = (props) =>{
             booleanEditorComponent={BooleanEditorComponent}
             selectComponent={SelectComponent}
             radioGroupComponent={RadioGroupComponent}
+            weeklyRecurrenceSelectorComponent={WeeklySelect}
           />
 
         </Scheduler>
