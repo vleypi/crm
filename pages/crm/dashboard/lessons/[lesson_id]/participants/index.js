@@ -1,6 +1,6 @@
 import React from 'react'
 import Container from '../../../../../../components/Container/Container'
-import Profile from '../../../../../../components/Container/profilesContainer/Profile'
+import LessonProfile from '../../../../../../components/Container/profilesContainer/LessonProfile'
 import Participants from '../../../../../../components/Lessons/Lesson/LessonPages/Participants'
 import { getLessonParticipants} from '../../../../../../controllers/pagesController/lesson_id/getLesson'
 
@@ -9,7 +9,7 @@ const LessonParticipants = ({lesson,participants}) => {
 
     return (
         <Container titlte='Занятие' header='Занятие'>
-            <Profile
+            <LessonProfile
                 lesson={lesson} 
                 component={{
                     addInfo: '', 
@@ -20,7 +20,7 @@ const LessonParticipants = ({lesson,participants}) => {
                 }}
             >
                 <Participants lesson={lesson} participants={participants}/>
-            </Profile>
+            </LessonProfile>
         </Container>
     )
 }

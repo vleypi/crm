@@ -6,7 +6,6 @@ import Schedule from '../../../../../../components/Teachers/Teacher/TeacherPages
 
 
 const Teacher = (props) => {
-    console.log(props)
     return (
         <Container titlte='Профиль ученика' header='Профиль ученика'>
             <Profile 

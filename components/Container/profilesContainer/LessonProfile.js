@@ -9,13 +9,6 @@ const Profile = (props) =>{
     const router = useRouter()
     const dispatch = useDispatch()
 
-    const links = [
-        {text: 'Занятия',href: `/crm/dashboard/${props.page}/${props.user.user_id}/lessons`},
-        {text: 'Расписание', href:  `/crm/dashboard/${props.page}/${props.user.user_id}/schedule`},
-    ].map((link)=>(
-        <Link href={link.href} ><a className={router.asPath === link.href && styles.active}>{link.text}</a></Link>
-    ))
-
     const setPopup = () =>{
         dispatch(setPopupType({
             type: 'right',
@@ -36,9 +29,6 @@ const Profile = (props) =>{
                             </div>
                             <p className={styles.addInfo}>{props.component.addInfo}</p>
                         </div>
-                </div>
-                <div className={styles.nav}>
-                    {links}
                 </div>
             </div>
             <div className={styles.profileContent}>
