@@ -1,4 +1,6 @@
 import EditorJS from '@editorjs/editorjs'
+import ImageTool from '@editorjs/image';
+import HeaderTool from '@editorjs/header';
 import { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import TextareaAutosize  from 'react-textarea-autosize'
@@ -18,7 +20,51 @@ const Editor = () => {
            
         },
         tools: {
-
+            image: {
+                class: ImageTool,
+                config: {
+                    uploader: {
+                        async uploadByFile(file) {
+                            return {
+                                success: 1,
+                                file: {
+                                    url: 'http://localhost:5001/static/blog/4943856505664401.png',
+                                    "caption" : "Roadster // tesla.com",
+                                    "withBorder" : false,
+                                    "withBackground" : false,
+                                    "stretched" : true
+                                },
+                                
+                            }
+                        },
+                        async uploadByUrl(file) {
+                            return {
+                                success: 1,
+                                file: {
+                                    url: 'http://localhost:5001/static/blog/4943856505664401.png',
+                                    "caption" : "Roadster // tesla.com",
+                                    "withBorder" : false,
+                                    "withBackground" : false,
+                                    "stretched" : true
+                                },
+                                
+                            }
+                        }
+                    },
+                    actions: [
+                        {
+                            name: 'new_button',
+                            icon: '<svg>...</svg>',
+                            title: 'New Button',
+                            toggle: true,
+                            action: (name) => {
+                                alert(`${name} button clicked`);
+                            }
+                        }
+                    ]
+                }
+            },
+            header: HeaderTool
         },
         onChange: (e)=>{
             save()

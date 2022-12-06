@@ -10,9 +10,10 @@ const Publish = ({styles}) => {
         await publishPost(editorState)
     }
 
+
     return (
             <div className={styles.buttons}>
-                <button disabled={!editorState.header && !editorState.blocks.blocks.length} onClick={publish}>
+                <button disabled={!(editorState.header && editorState.blocks.blocks.length)} onClick={publish}>
                     Опубликовать
                 </button>
             </div>

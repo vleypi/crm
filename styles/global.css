@@ -11,3 +11,6 @@ body{
     
 }
 
+.image-tool__caption,.image-tool .cdx-button{
+  display: none;
+}
