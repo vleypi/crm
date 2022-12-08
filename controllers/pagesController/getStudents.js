@@ -17,7 +17,8 @@ export const getStudents = async (ctx) =>{
 
         return{
             props:{
-                students: res.data.stundents
+                students: res.data.stundents,
+                role: res.data.role
             }
         }
     }

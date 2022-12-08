@@ -5,10 +5,10 @@ import Lessons from '../../../../../../components/Students/Student/StudentPages/
 import Profile from '../../../../../../components/Container/profilesContainer/Profile'
 
 
-const Student = ({student,lessons}) => {
+const Student = ({student,lessons,role}) => {
     
     return (
-        <Container titlte='Профиль ученика' header='Профиль ученика'>
+        <Container titlte='Профиль ученика' header='Профиль ученика' role={role}>
             <Profile 
                 user={student} 
                 page={'students'}
@@ -19,6 +19,7 @@ const Student = ({student,lessons}) => {
                     popup_type: 'students',
                     functions: student
                 }}
+                role={role}
             >
                 <Lessons student={student} lessons={lessons}/>
             </Profile>

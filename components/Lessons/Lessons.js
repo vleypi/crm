@@ -9,7 +9,7 @@ const Lessons = (props) => {
 
     return (
         <div className={styles.lessons}>
-            <LessonsList lessons={props.lessons} styles={styles}/>
+            <LessonsList lessons={props.lessons} styles={styles} role={props.role}/>
         </div>
     )
 }

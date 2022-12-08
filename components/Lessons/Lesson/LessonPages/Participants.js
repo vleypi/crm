@@ -4,7 +4,7 @@ import { setPopupType } from "../../../../store/slices/popup"
 
 import styles from '../../../../styles/profile/participantsProfile.module.css'
 
-const Participants = ({participants,lesson}) => {
+const Participants = ({participants,lesson,role}) => {
     
     const router = useRouter()
 
@@ -34,6 +34,7 @@ const Participants = ({participants,lesson}) => {
             functions: lesson
         }))
     }
+
 
     const addParticipants = <div className={styles.participant} style={{border: 'dashed 1px gray',background: 'none'}} onClick={setPopup}>
             <div style={{color: '#2c2b7c',fontSize: '48px',fontWeight: 3000}}>+</div>

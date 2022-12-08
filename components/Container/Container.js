@@ -4,8 +4,16 @@ import Header from '../Header/Header'
 import Nav from '../Nav/Nav'
 import styles from '../../styles/container/container.module.css'
 import Popup from '../Popup/Popup'
+import { useRouter } from 'next/router'
 
-const Container = ({titlte,header,children}) => {
+const Container = ({titlte,header,children,role}) => {
+
+    const router = useRouter()
+
+    // if(!role){
+    //     router.replace('/auth')
+    // }
+
     return (
         <>
             <Head>
@@ -16,7 +24,7 @@ const Container = ({titlte,header,children}) => {
             </Head>
 
             <div className={styles.contentPage}>
-                <Nav />
+                <Nav role={role}/>
                 <div className={styles.contentMain}>
                     <Header header={header} />
                     <div className={styles.contentUser}>

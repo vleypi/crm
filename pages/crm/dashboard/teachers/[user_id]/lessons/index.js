@@ -5,10 +5,10 @@ import { getTeacherLessons } from '../../../../../../controllers/pagesController
 import Lessons from '../../../../../../components/Teachers/Teacher/TeacherPages/Lessons/Lessons'
 
 
-const TeacherLessons = ({teacher,lessons}) => {
+const TeacherLessons = ({teacher,lessons,role}) => {
 
     return (
-        <Container titlte='Профиль педагога' header='Профиль педагога'>
+        <Container titlte='Профиль педагога' header='Профиль педагога' role={role}>
             <Profile 
                 user={teacher} 
                 page={'teachers'}
@@ -19,6 +19,7 @@ const TeacherLessons = ({teacher,lessons}) => {
                     popup_type: 'teachers',
                     functions: teacher
                 }}
+                role={role}
             >
                 <Lessons teacher={teacher} lessons={lessons}/>
             </Profile>

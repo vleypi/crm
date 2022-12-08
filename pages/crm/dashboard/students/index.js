@@ -3,10 +3,11 @@ import Container from '../../../../components/Container/Container'
 import StudentsComponent from '../../../../components/Students/Students'
 import { getStudents } from '../../../../controllers/pagesController/getStudents'
 
-const Students = ({students}) => {
+const Students = (props) => {
+    console.log(props)
     return (
-        <Container titlte='Ученики' header='Ученики'>
-            <StudentsComponent students={students}/>
+        <Container titlte='Ученики' header='Ученики' role={props.role}>
+            <StudentsComponent students={props.students}/>
         </Container>
     )
 }

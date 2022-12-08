@@ -8,7 +8,7 @@ import Schedule from '../../../../../../components/Students/Student/StudentPages
 const Student = (props) => {
 
     return (
-        <Container titlte='Профиль ученика' header='Профиль ученика'>
+        <Container titlte='Профиль ученика' header='Профиль ученика' role={props.role}>
             <Profile 
                 user={props.student} 
                 page={'students'}
@@ -19,6 +19,7 @@ const Student = (props) => {
                     popup_type: 'students',
                     functions: props.student
                 }}
+                role={props.role}
             >
                 <Schedule appointments={props.appointments} lessons={props.lessons}/>
             </Profile>

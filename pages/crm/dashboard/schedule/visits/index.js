@@ -5,7 +5,7 @@ import { getVisits } from '../../../../../controllers/pagesController/getVisits'
 
 const Schedule = (props) => {
     return (
-        <Container titlte={'Посещения'} header={'Посещение'}>
+        <Container titlte={'Посещения'} header={'Посещение'} role={props.role}>
             <Visits 
                 lesson={props.lesson} 
                 participants={props.participants} 

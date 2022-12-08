@@ -3,9 +3,9 @@ import Container from '../../../../components/Container/Container'
 import Statuses from '../../../../components/Statuses/Statuses'
 import { getStatuses } from '../../../../controllers/pagesController/getStatuses'
 
-const statuses = ({statuses,statuses_visits}) => {
+const statuses = ({statuses,statuses_visits,role}) => {
     return (
-        <Container title="Статусы" header="Статусы">
+        <Container title="Статусы" header="Статусы" role={role}>
             <Statuses statuses={statuses} statuses_visits={statuses_visits}/>
         </Container>
     )

@@ -3,9 +3,9 @@ import Container from '../../../../components/Container/Container'
 import TeachersComponent from '../../../../components/Teachers/Teachers'
 import { getTeachers } from '../../../../controllers/pagesController/getTeachers'
 
-const Teachers = ({teachers}) => {
+const Teachers = ({teachers,role}) => {
     return (
-        <Container titlte='Педагоги' header='Педагоги'>
+        <Container titlte='Педагоги' header='Педагоги' role={role}>
             <TeachersComponent teachers={teachers}/>
         </Container>
     )

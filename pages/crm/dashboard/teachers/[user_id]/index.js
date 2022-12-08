@@ -2,9 +2,9 @@ import React from 'react'
 import Container from '../../../../../components/Container/Container'
 
 
-const Teacher = () => {
+const Teacher = (props) => {
     return (
-        <Container titlte='Профиль ученика' header='Профиль ученика'>
+        <Container titlte='Профиль ученика' header='Профиль ученика' role={props.role}>
             
         </Container>
     )

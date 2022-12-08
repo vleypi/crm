@@ -23,33 +23,8 @@ const Editor = () => {
             image: {
                 class: ImageTool,
                 config: {
-                    uploader: {
-                        async uploadByFile(file) {
-                            return {
-                                success: 1,
-                                file: {
-                                    url: 'http://localhost:5001/static/blog/4943856505664401.png',
-                                    "caption" : "Roadster // tesla.com",
-                                    "withBorder" : false,
-                                    "withBackground" : false,
-                                    "stretched" : true
-                                },
-                                
-                            }
-                        },
-                        async uploadByUrl(file) {
-                            return {
-                                success: 1,
-                                file: {
-                                    url: 'http://localhost:5001/static/blog/4943856505664401.png',
-                                    "caption" : "Roadster // tesla.com",
-                                    "withBorder" : false,
-                                    "withBackground" : false,
-                                    "stretched" : true
-                                },
-                                
-                            }
-                        }
+                    endpoints: {
+                        byFile: 'http://localhost:5001/api/blog/uploadImg', // Your backend file uploader endpoint
                     },
                     actions: [
                         {

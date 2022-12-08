@@ -32,7 +32,7 @@ const Profile = (props) =>{
                         <div className={styles.mainInfo}>
                             <div style={{display: 'flex'}}>
                                 <p className={styles.name}>{props.component.name}</p>
-                                <span className={styles.getInfo} onClick={setPopup}>i</span>
+                                {props.role == 'Владелец' && <span className={styles.getInfo} onClick={setPopup}>i</span>}
                             </div>
                             <p className={styles.addInfo}>{props.component.addInfo}</p>
                         </div>

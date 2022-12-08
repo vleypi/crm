@@ -9,7 +9,8 @@ export const profileSlice = createSlice({
         surname: null,
         email: null,
         phone: null,
-        role: null
+        role: null,
+        avatar: null,
     },
     reducers: {
         setProfile: (state,action) =>{
@@ -19,7 +20,14 @@ export const profileSlice = createSlice({
             state.email = action.payload.email
             state.phone = action.payload.phone
             state.role = action.payload.role
-        }
+            state.avatar = action.payload.avatar
+        },
+        setAvatar: (state,action) =>{
+            state.avatar = action.payload
+        },
+        setName: (state,action) =>{
+            state.name = action.payload
+        },
     },
     extraReducers: {
         [HYDRATE]: (state,action) =>{
@@ -28,6 +36,6 @@ export const profileSlice = createSlice({
     }
 })
 
-export const {setProfile} = profileSlice.actions
+export const {setProfile,setAvatar,setName} = profileSlice.actions
 
 export default profileSlice.reducer

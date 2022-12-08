@@ -14,7 +14,7 @@ const statuses = (props) => {
     },[])
 
     return (
-        <Container title="Занятия" header="Занятия">
+        <Container title="Занятия" header="Занятия" role={props.role}>
             <Lessons lessons={props.lessons}/>
         </Container>
     )

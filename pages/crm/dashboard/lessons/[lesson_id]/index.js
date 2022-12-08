@@ -4,7 +4,7 @@ import Container from '../../../../../components/Container/Container'
 
 const Student = () => {
     return (
-        <Container titlte='Профиль ученика' header='Профиль ученика'>
+        <Container titlte='Профиль ученика' header='Профиль ученика' role={props.role}>
             
         </Container>
     )

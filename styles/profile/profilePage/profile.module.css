@@ -1,0 +1,95 @@
+.profile .block{
+    width: 100%;
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.profile .block +  .block{
+    margin-top: 20px;
+}
+
+.profile .block h3{
+    margin-bottom: 20px;
+}
+
+.profile .block .avatarImg{
+    display: flex;
+    width: 200px;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    background: gray;
+    color: white;
+    overflow: hidden;
+}
+
+.profile .block .avatarImg img{
+    display: block; 
+    min-width: 100%;   
+    min-height: 100%;   
+    -ms-interpolation-mode: bicubic;
+}
+
+.profile .block .setAvatar{
+    margin-top: 20px;
+}
+
+
+.profile input[type="file"] {
+    display: none;
+}
+
+.profile .customFileUpload{
+    display: inline-block;
+    text-align: center;
+    border: 1px rgb(218, 218, 218) solid;
+    font-size: 14px;
+    padding: 10px 25px;
+    background: white;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.profile .save{
+    border: 1px rgb(218, 218, 218) solid;
+    font-size: 14px;
+    padding: 10px 25px;
+    background: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.profile .displayContainer{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile .displayDiv{
+   
+}
+.profile .displayDiv input{
+    width: 100%;
+    margin-bottom: 20px;
+    height: 38px;
+    font-size: 14px;
+    border: 1px rgb(218, 218, 218) solid;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.15s;
+}
+
+
+.profile .displayDiv :hover{
+    border: 1px solid rgb(136, 136, 136);
+}
+
+.profile .displayDiv :focus{
+    border: 1px solid rgb(38,132,255);
+}
+

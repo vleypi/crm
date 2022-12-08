@@ -4,7 +4,7 @@ import Container from "../../../../components/Container/Container"
 
 const Visits = (props) =>{
     return(
-        <Container title="Посещенеия" header="Посещения">
+        <Container title="Посещенеия" header="Посещения" role={props.role}>
             
         </Container>
     )
