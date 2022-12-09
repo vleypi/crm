@@ -13,6 +13,11 @@ export const chatSlice = createSlice({
             state.chat_id = action.payload.chat_id
             state.chat_name = action.payload.chat_name
             state.messages = action.payload.messages
+        },
+        setMessage: (state,action) =>{
+            if(state.chat_id == action.payload.chat_id){
+                state.messages.push(action.payload)
+            }
         }
     },
     extraReducers: {
@@ -22,6 +27,6 @@ export const chatSlice = createSlice({
     }
 })
 
-export const {setChat} = chatSlice.actions
+export const {setChat,setMessage} = chatSlice.actions
 
 export default chatSlice.reducer

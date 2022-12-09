@@ -43,7 +43,6 @@ const Lessons = ({popup}) => {
         lesson_teachers=[]
     } = popup.functions
 
-    console.log(popup.functions)
 
     const [studentsTeachers,setStudentsTeachers] = useState({
         lessons_students: [],

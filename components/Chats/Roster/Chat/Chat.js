@@ -8,6 +8,7 @@ const Chat = ({styles,chat}) => {
     const routerHandler = () =>{
         router.push('/crm/dashboard/chats/'+chat.chat_id)
     }
+    
 
     return (
         <div className={styles.chatRoster} onClick={routerHandler}>
@@ -18,7 +19,7 @@ const Chat = ({styles,chat}) => {
                     <div className={styles.chatName} style={{wordBreak: 'break-word'}}>{chat.chat_name.substr(0,25)}{chat.chat_name.length > 25 && '...'}</div>
                     {chat.lastMessage &&
                         <div className={styles.lastMessage}>
-                            <div style={{wordBreak: 'break-word'}}>{chat.lastMessage.user_name}: {chat.lastMessage.message_text.substr(0,25)}{chat.lastMessage.message_text.length > 25 && '...'}</div>
+                            <div style={{wordBreak: 'break-word'}}>{chat.lastMessage.name}: {chat.lastMessage.message_text.substr(0,25)}{chat.lastMessage.message_text.length > 25 && '...'}</div>
                         </div>
                     }
                 </div>

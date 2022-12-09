@@ -1,9 +1,49 @@
-import React from 'react'
+import { CoPresentSharp } from '@mui/icons-material'
+import {useEffect, useRef, useState} from 'react'
+import useSocket from '../../../../hooks/useSocket'
 import Message from './Message/Message'
-import moment from 'moment'
 
-const Messages = ({styles,messages,user_id}) => {
+const Messages = ({styles,chat,user_id}) => {
 
+
+    const [messages,setMessages] = useState(chat.messages)
+
+    const socket = useSocket()
+
+
+    useEffect(()=>{
+        if(socket){
+
+            socket.on('getMessage',(message)=>{
+                setMessages((prev)=>{
+                    return [...prev,message]
+                })
+            })
+
+            socket.on('deletedMessage',(message)=>{
+                setMessages((prev)=>{
+                    return prev.filter(mes=>mes.message_id != message.message_id)
+                })
+            })
+        }
+    },[socket])
+
+    const [contextmenu,setContextmenu] = useState({message: null})
+
+    const contextmenuHandler = (message) =>{
+        setContextmenu({message})
+    }
+
+    const contextmenuFunctions = (action,state) =>{
+        socket && socket.emit(action,state)
+        setContextmenu({message: null})
+    }
+
+    const messagesEndRef = useRef(null)
+
+    useEffect(()=>{
+        messagesEndRef.current?.scrollIntoView()
+    },[messages])
 
     const dates = []
 
@@ -54,9 +94,10 @@ const Messages = ({styles,messages,user_id}) => {
                 
                 {
                     u.messages.map((mes)=>(
-                        <Message styles={styles} user_id={user_id} message={mes}/>
+                        <Message styles={styles} user_id={user_id} message={mes} contextmenuHandler={contextmenuHandler} contextmenu={contextmenu} contextmenuFunctions={contextmenuFunctions}/>
                     ))
                 }
+                <div ref={messagesEndRef} />
             </>
         )
     })

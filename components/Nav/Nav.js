@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 
 const Nav = ({role}) =>{
-    console.log(role)
+
     const router = useRouter()
 
     const links = [

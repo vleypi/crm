@@ -6,7 +6,6 @@ import { setPopupType } from '../../../store/slices/popup'
 
 const Profile = (props) =>{
 
-    console.log(props)
 
     const router = useRouter()
     const dispatch = useDispatch()

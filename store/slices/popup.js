@@ -10,7 +10,6 @@ export const popupSlice = createSlice({
     },
     reducers: {
         setPopupType: (state,action) =>{
-            console.log(action.payload)
             state.type = action.payload.type
             state.contentType = action.payload.contentType
             state.functions = action.payload.functions

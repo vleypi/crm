@@ -1,14 +1,16 @@
 import Container from '../../../../../components/Container/Container'
 import ChatsComponent from '../../../../../components/Chats/Chats'
 import { getChats } from '../../../../../controllers/pagesController/getChats'
-import { getChat } from '../../../../../controllers/pagesController/chat_id/getChat'
+import CreateChat from '../../../../../components/Chats/Create/Create'
+import { getUsersForChat } from '../../../../../controllers/pagesController/getUsersForChat'
 
 
 const Chats = (props) => {
 
+
     return (
         <Container titlte={'Связь'} header={'Связь'} role={props.role}>
-            <ChatsComponent user_id={props.user_id} chats={props.chats} chat={props.chat} users={props.users}/>
+            <CreateChat chats={props.chats} user_id={props.user_id} users={props.users}/>
         </Container>
     )
 }
@@ -19,14 +21,14 @@ export const getServerSideProps = async (ctx) => {
 
     try{
         const chats = await getChats(ctx)
-        const chat = await getChat(ctx)
+        const users = await getUsersForChat(ctx)
 
         return {
-            props: Object.assign(chats,chat)
+            props: Object.assign(chats,users)
         }
     }
     catch(err){
-        console.log(err)
+
         return {
             redirect: {
                 permanent: false,

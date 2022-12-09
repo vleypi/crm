@@ -10,6 +10,29 @@
     width: 20%;
     overflow-y: scroll;
     height: 100%;
+    position: relative;
+}
+
+.chats .roster .createBtnDiv{
+    position:  absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.37);
+    padding-bottom: 20px;
+}
+
+.chats .roster .createBtn{
+    background: rgb(44,43,124);
+    color: white;
+    padding: 5px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
 }
 
 .chats .roster .chatRoster{
@@ -75,6 +98,8 @@
 }
 
 .chats .chat .header{
+    position: relative;
+    z-index: 12;
     width: 100%;
     background: white;
     height: 60px;
@@ -105,7 +130,7 @@
 
 
 .chats .chat .chatForm .textarea{
-    width: 90%;
+    width: 80%;
     font-size: 17px;
     padding: 10px;
     resize: none;
@@ -117,6 +142,27 @@
     font-size: 17px;
     padding: 8px 10px;
     cursor: pointer;
+    background: rgb(44,43,124);
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+.chats .chat  .chatForm input[type="file"] {
+    display: none;
+}
+.chats .chat  .chatForm .customFileUpload{
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.chats .chat .chatForm .photoChosen{
+    position: absolute;
+    top: 0;
+}
+
+.chats .chat  .chatForm .customFileUpload:hover{
+    color: rgba(0, 0, 0, 0.815);
 }
 
 .chats .chat .messages{
@@ -128,16 +174,74 @@
     flex-direction: column;
 }
 
+
 .chats .chat .messages .message + .message{
     margin-top: 20px;
     
+}
+
+.chats .chat .messages .contextmenu{
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    background: white;
+    animation: 0.2s contextmenu;
+    transition: 1s;
+    width: 100%;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 0px 2px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 0px 2px 0px rgba(34, 60, 80, 0.2);
+}
+
+.chats .chat .messages .message .contextmenu .chosenMes{
+    padding: 10px;
+    display: flex;
+}
+
+.chats .chat .messages .message .contextmenu .chosenMes .author{
+    color: blue;
+    margin-right: 5px;
+    font-weight: 600;
+}
+
+.chats .chat .messages .message .contextmenu .tools{
+    display: flex;
+}
+
+.chats .chat .messages .message .contextmenu .tools .tool{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 10px 30px;
+    cursor: pointer;
+    -ms-user-select: none; 
+	-moz-user-select: none; 
+	-webkit-user-select: none; 
+	user-select: none; 
+}
+
+.chats .chat .messages .message .contextmenu .tool:hover{
+    background: rgb(231, 231, 255);
+}
+
+@keyframes contextmenu {
+    0%{
+        transform: translateY(-60px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
 }
 
 .chats .chat .messages .message .messageContent{
     background: #e2f7cb;
     position: relative;
     word-wrap: break-word;
-
     min-width: 200px;
     max-width: 450px;
     min-height: 30px;
@@ -166,4 +270,73 @@
 }
 .chats .chat .name:hover{
     text-decoration: underline;
+}
+
+.chats .creator{
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.chats .creator h3{
+    text-align: center;
+    font-size: 25px;
+}
+
+.chats .creator .chat_name,.chat_users{
+    width: 100%;
+}
+
+.chats .creator input{
+    height: 38px;
+    font-size: 14px;
+    border: 1px rgb(218, 218, 218) solid;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.15s;
+    margin-top: 10px;
+    width: 100%;
+    font-size: 17px;
+    height: 50px;
+}
+
+.chats .creator input:hover{
+    border: 1px solid rgb(136, 136, 136);
+}
+
+.chats .creator input:focus{
+    border: 1px solid rgb(38,132,255);
+}
+
+.chats .creator  p{
+    font-size: 18px;
+}
+
+.chats .creator .chat_users{
+    margin-top: 20px;
+}
+
+.chats .creator .chat_users .select{
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+.chats .creator .chat_users .select div{
+    font-size: 17px;
+   
+}
+
+.chats .creator .createBtn{
+        margin-bottom: 20px;
+        background: rgb(44,43,124);
+        color: white;
+        padding: 5px 20px;
+        font-size: 20px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
 }

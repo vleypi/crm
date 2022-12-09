@@ -5,7 +5,7 @@ import { getChats } from '../../../../controllers/pagesController/getChats'
 const Chats = (props) => {
     return (
         <Container titlte={'Связь'} header={'Связь'} role={props.role}>
-            <ChatsComponent chats={props.chats}/>
+            <ChatsComponent chats={props.chats} user_id={props.user_id}/>
         </Container>
     )
 }

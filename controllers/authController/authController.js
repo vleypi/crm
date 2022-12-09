@@ -17,7 +17,7 @@ export const login = async (inputValues,dispatch,router) =>{
 
 export const setUser = async (functions) =>{
     try{
-        console.log(functions)
+
         const res = await axios.post('http://localhost:5001/api/auth/setUser',{
             status: functions.status,
             gender: functions.gender,

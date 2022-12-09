@@ -14,9 +14,9 @@ const Chat = ({styles,chat,messages,users,user_id}) => {
                     Выберите чат для начала общения
                 </div> :
                 <div className={styles.chat}>
-                    <Header styles={styles} chat={chat}/>
-                    <Messages styles={styles} chat={chat} messages={messages} user_id={user_id}/>
-                    <ChatForm styles={styles}/>
+                    <Header styles={styles} chat={chat} users={users}/>
+                    <Messages styles={styles} chat={chat}  user_id={user_id}/>
+                    <ChatForm styles={styles} chat={chat} user_id={user_id}/>
                 </div>
             }
         </>

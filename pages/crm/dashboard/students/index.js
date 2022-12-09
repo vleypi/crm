@@ -4,7 +4,7 @@ import StudentsComponent from '../../../../components/Students/Students'
 import { getStudents } from '../../../../controllers/pagesController/getStudents'
 
 const Students = (props) => {
-    console.log(props)
+
     return (
         <Container titlte='Ученики' header='Ученики' role={props.role}>
             <StudentsComponent students={props.students}/>
