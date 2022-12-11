@@ -41,7 +41,7 @@ const headerComponent = (props,lessons) =>{
   
   return(
     <div style={{display: 'flex',flexDirection: 'column'}}>
-      <Link href={`/crm/dashboard/schedule/visits?lesson_id=${lesson_id}&day=${date.getDate()}&month=${date.getMonth()}&year=${date.getFullYear()}`}>
+      <Link href={`/crm/dashboard/visits?lesson_id=${lesson_id}&day=${date.getDate()}&month=${date.getMonth()}&year=${date.getFullYear()}`}>
         <a style={{
           width: '100%',
           background: lessons.find(lesson=>lesson.id == props.appointmentData.lesson_id).color,
