@@ -4,9 +4,9 @@ import nookies from 'nookies'
 
 export const getVisits = async (ctx) =>{
     try{
-        const {lesson_id='',day,month,year} = ctx.query
+        const {appointment_id='',day,month,year} = ctx.query
         const cookies = nookies.get(ctx)
-        const res = await axios.get(`http://localhost:5001/api/pages/getVisits?lesson_id=${lesson_id}&day=${day}&month=${month}&year=${year}`, {
+        const res = await axios.get(`http://localhost:5001/api/pages/getVisits?appointment_id=${appointment_id}&day=${day}&month=${month}&year=${year}`, {
             data: {
                 ref: cookies.ref ? cookies.ref : '',
                 acc: cookies.acc ? cookies.acc : '',

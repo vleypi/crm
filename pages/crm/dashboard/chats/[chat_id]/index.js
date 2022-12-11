@@ -8,7 +8,7 @@ const Chats = (props) => {
 
     return (
         <Container titlte={'Связь'} header={'Связь'} role={props.role}>
-            <ChatsComponent user_id={props.user_id} chats={props.chats} chat={props.chat} users={props.users}/>
+            <ChatsComponent user_id={props.user_id} chats={props.chats} chat={props.chat} users={props.users} role={props.role}/>
         </Container>
     )
 }

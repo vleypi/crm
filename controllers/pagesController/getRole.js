@@ -2,10 +2,9 @@ import {errorRedirect} from '../errorRedirect/errorRedirect'
 import axios from 'axios'
 import nookies from 'nookies'
 
-export const getProfile = async (ctx) =>{
-    try{
+export const getRole = async (ctx) =>{
         const cookies = nookies.get(ctx)
-        const res = await axios.get(`http://localhost:5001/api/pages/getProfile`, {
+        const res = await axios.get(`http://localhost:5001/api/pages/getRole`, {
             data: {
                 ref: cookies.ref ? cookies.ref : '',
                 acc: cookies.acc ? cookies.acc : '',
@@ -19,13 +18,4 @@ export const getProfile = async (ctx) =>{
         return{
             props: res.data,
         }
-    }
-    catch(err){
-        return {
-            redirect: {
-                permanent: false,
-                destination: "/auth",
-            }
-        }
-    }
 }

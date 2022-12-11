@@ -1,10 +1,11 @@
 import axios from 'axios'
 
-export const publishPost = async (props) =>{
+export const publishPost = async (blocks,header,blog_id='') =>{
     try{
         const res = await axios.post('http://localhost:5001/api/blog/publishPost',{
-            header: props.header,
-            blocks: props.blocks
+            header,
+            blocks,
+            blog_id
         }, {withCredentials: true})
        
     }

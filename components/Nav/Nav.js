@@ -8,14 +8,15 @@ const Nav = ({role}) =>{
     const router = useRouter()
 
     const links = [
-        {text: 'Расписание',href: '/crm/dashboard/schedule',role: ['Владелец','Педагог']},
+        {text: 'Расписание',href: '/crm/dashboard/schedule',role: ['Владелец','Педагог','Ученик']},
+        {text: 'Посещения',href: '/crm/dashboard/visits',role: ['Владелец','Педагог','Ученик']},
         {text: 'Ученики', href: '/crm/dashboard/students',role: ['Владелец','Педагог']},
         {text: 'Педагоги', href: '/crm/dashboard/teachers',role: ['Владелец']},
         {text: 'Статусы', href: '/crm/dashboard/statuses',role: ['Владелец']},
         {text: 'Занятия',href: '/crm/dashboard/lessons',role: ['Владелец','Педагог']},
+        {text: 'Связь',href: '/crm/dashboard/chats',role:['Владелец','Педагог','Ученик']},
         {text: 'Блог',href: '/crm/dashboard/blog',role: ['Владелец']},
-        {text: 'Связь',href: '/crm/dashboard/chats',role:['Владелец','Педагог']},
-        {text: 'Профиль',href: '/crm/dashboard/profile',role:['Владелец','Педагог']},
+        {text: 'Профиль',href: '/crm/dashboard/profile',role:['Владелец','Педагог','Ученик']},
     ].map((link)=>(
         link.role.find(l=>l == role) && <Link href={link.href} ><a className={router.pathname === link.href && styles.active}>{link.text}</a></Link>
     ))

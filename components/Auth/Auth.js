@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { login } from '../../controllers/authController/authController';
 import { useDispatch } from 'react-redux';
 
-const Auth = () =>{
+const Auth = ({role}) =>{
 
     const dispatch = useDispatch()
 
@@ -89,17 +89,6 @@ const Auth = () =>{
             <div className={styles.inputForm}>
                 <input type="password" placeholder='Пароль' className={styles.password} value={inputValues.password} onChange={inputHandler}/>
                 {errorForm.password && <span className={styles.errorForm}>{errorForm.password}</span>}
-            </div>
-            <div className={styles.languages}> 
-                {languagesBtns}
-            </div>
-            <div className={styles.rememberMe}>
-                <div 
-                    className={`${styles.checkbox} ${checked && styles.checked}`}
-                    onClick={()=>setChecked(!checked)}
-                >
-                </div>
-                <p>Запомнить меня</p>
             </div>
             <button className={styles.signin} onClick={signin}>Войти</button>
             {mes && <p style={{color: 'red'}}>{mes}</p>}

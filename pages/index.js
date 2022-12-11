@@ -4,11 +4,11 @@ import Link from "next/link"
 import Image from 'next/image'
 import centr from '../images/main_page/img/centr.svg'
 import solomon__ from '../images/main_page/img/solomon__.svg'
-import whatsup from '../images/main_page/img/whatsup.svg'
-import tictok from '../images/main_page/img/tictok.svg'
+import whatsup from '../images/main_page/img/whatsup.png'
+import tictok from '../images/main_page/img/tictok.png'
 import dzen2 from '../images/main_page/img/dzen2.svg'
 import teleg from '../images/main_page/img/teleg.svg'
-import vk2 from '../images/main_page/img/vk2.svg'
+import vk2 from '../images/main_page/img/vk2.png'
 import icons8 from '../images/main_page/img/icons8.svg'
 import Group_300_1 from '../images/main_page/img/Group_300_1.svg'
 import Vector from '../images/main_page/img/Vector.png'
@@ -40,17 +40,33 @@ import blog1 from '../images/main_page/img/blog1.jpg'
 import blog2 from '../images/main_page/img/blog2.jpg'
 import blog3 from '../images/main_page/img/blog3.jpg'
 import Head from 'next/head'
-
-
+import IMG_4022 from '../images/main_page/img/IMG_4022.jpg'
+import tild6337_group_313 from  '../images/main_page/img/tild6337-3038-4533-a266-623935396437__group_313.svg'
+import Screenshot_44 from '../images/main_page/img/Screenshot_44.jpg'
 
 
 
 import Typed from 'react-typed';
+import { Router, useRouter } from 'next/router'
+import { getPosts } from '../controllers/pagesController/getPosts'
 
 
 
-const MainPage = () =>{
+const MainPage = (props) =>{
 
+    const router = useRouter()
+
+    const posts = props.posts.slice(0,3).map((post)=>(
+        <div className={styles.bottom_section_form_box} onClick={()=>router.push(`/blog/${post.blog_id}`)}>
+            <div className={styles.bottom_section_form_box_img}>
+                <div className={styles.bottom_section_blog_img}>
+                    <img src={post.image}/>
+                </div>
+                <h5 style={{paddingBottom: "5%", marginTop: "5%"}}>{post.header}</h5>
+                <p>03/11/2022</p>
+            </div>
+        </div>
+    ))
 
     return(
         <>
@@ -70,34 +86,7 @@ const MainPage = () =>{
                         <p className={styles.navigation_panel_p_link}>+7(383)23-59-131</p>
                     </div>
                     <div className={styles.navigation_panel_right}>
-                        <div className={styles.social}>
-                            <a href="https://api.whatsapp.com/send/?phone=79930284898&text&type=phone_number&app_absent=0">
-                                <Image src={whatsup.svg} style="width: 100%"/>
-                            </a>
-                        </div>
-                        <div className={styles.social}>
-                            <a href="https://www.tiktok.com/@_solomon_plus?_t=8VSerMvtM9a&_r=1">
-                                <Image src={tictok.svg} style="width: 100%"/>
-                            </a>
-                        </div>
-                        <div className={styles.social}>
-                            <a href="https://dzen.ru/solomonplus">
-                                <Image src={dzen2.svg} style="width: 100%"/>
-                            </a>
-                        </div>
-                        <div className={styles.social}>
-                            <a href="https://t.me/+99mHJlJXYus3ZTNi">
-                                <Image src={teleg.svg} style="width: 100%"/>
-                            </a>
-                        </div>
-                        <div className={styles.social}>
-                            <a href="https://vk.com/ensolomon">
-                                <Image src={vk2.svg} style="width: 100%"/>
-                            </a>
-                        </div>
-                        <div className={styles.social}>
-                            <Image src={icons8.svg} style="width: 100%"/>
-                        </div>
+                        <button className={styles.login} onClick={()=>router.push('/auth')}>Вход</button>
                     </div>
                 </nav>
             </header>
@@ -115,7 +104,7 @@ const MainPage = () =>{
                                 /></span></h1>
                         </div>
                     <h3 style={{fontSize: "24px"}}>БОЛЕЕ ТЫСЯЧИ НАШИХ УЧЕНИКОВ ПОСТАВИЛИ ЦЕЛЬ И ЗАГОВОРИЛИ НА ДРУГОМ ЯЗЫКЕ.</h3>
-                    <h3 style={{color:"rgb(47, 93, 192)", fontSize: "24px", fontStyle: "italic", fontWeight: "900b"}}>ПОРА СДЕЛАТЬ ПЕРВЫЙ ШАГ!</h3>
+                    <h3 style={{color:"rgb(47, 93, 192)", fontSize: "24px", fontStyle: "italic", fontWeight: "900"}}>ПОРА СДЕЛАТЬ ПЕРВЫЙ ШАГ!</h3>
                 </article>
                 <div className = {styles.general_banner_img}>
                     <Image src={Group_300_1} style="width: 100%;"/>
@@ -124,11 +113,11 @@ const MainPage = () =>{
         <div className={styles.general_banner}>
             <div className={styles.general_banner_form}>
                 <p>ПОПРОБУЙТЕ БЕСПЛАТНО, ЗАПОЛНИВ ФОРМУ</p>
-                <input className={styles.action_form} type="text" placeholder="Имя"/>
-                <input className={styles.action_form} type="tel" placeholder="8(999)999999"/>
-                <input className={styles.action_form} type="email" placeholder="Электронная почта"/>
-                <label><input className={styles.action_check_form} type="checkbox"/> Согласен(а) с политикой конфиденциальности</label>
-                <button className={styles.general_banner_form_button} type="submit">ОТПРАВИТЬ</button>
+                <input className={styles.action_form} id={styles.action_form_first} type="text" placeholder="Имя"/>
+                <input className={styles.action_form} id={styles.action_form_first} type="tel" placeholder="8(999)999999"/>
+                <input className={styles.action_form} id={styles.action_form_first} type="email" placeholder="Электронная почта"/>
+                <label><input className={styles.action_check_form} type="checkbox"/> Согласен(а) с <a href="https://solomon.plus/privacy" style={{color: "#ff8562"}}>политикой конфиденциальности</a></label>
+                <button className={styles.general_banner_form_button} id={styles.action_form_first} type="submit">ОТПРАВИТЬ</button>
             </div>
             <div className={styles.general_banner_content}>
                 <div className={styles.general_banner_content_right}>
@@ -165,13 +154,15 @@ const MainPage = () =>{
         </div>
         <div className ={styles.general_banner_second}>
             <article className={styles.general_banner_content}>
-            <h2 style={{fontSize: '46px'}}><span style={{color:"rgb(47, 93, 192)"}}>ПОЧЕМУ СТОИТ ИЗУЧАТЬ</span> ИНОСТРАННЫЕ ЯЗЫКИ?</h2>
+            <h2 style={{fontSize: '46px', paddingBottom: "5%"}}><span style={{color:"rgb(47, 93, 192)"}}>ПОЧЕМУ СТОИТ ИЗУЧАТЬ</span> ИНОСТРАННЫЕ ЯЗЫКИ?</h2>
             </article>
             <div className={styles.general_banner_grid}>
                 <div className={styles.general_banner_content_grid}>
                     <p className={styles.grid_top_text}>УВЕРЕННОСТЬ В ПУТЕШЕСТВИЯХ ЗА ГРАНИЦЕЙ</p>
                     <p className={styles.grid_bottom_text}>Узнать маршрут, купить кофе, познакомится с новыми людьми - чувствуйте себя комфортно в любой ситуации и стране</p>
-                    <Image src={Ornament_12} style={{paddingLeft: "50%"}}/>
+                    <div className={styles.general_banner_grid_img}>
+                        <Image src={Ornament_12}/>
+                    </div>
                 </div>
                 <div className={styles.general_banner_content_grid}>
                     <p className={styles.grid_top_text}>КОМПЬЮТЕРНЫЕ И МОБИЛЬНЫЕ ИНТЕРФЕЙСЫ</p>
@@ -194,29 +185,29 @@ const MainPage = () =>{
     </section>
     <section className={styles.second_section}>
         <div className={styles.second_section_top}>
-            <h2 style={{fontSize: '46px'}}>ПОЧЕМУ <span style={{ color:"rgb(47, 93, 192)"}}>SOLOMON PLUS</span></h2>
+            <h2 style={{fontSize: '46px', paddingBottom: "5%"}}>ПОЧЕМУ <span style={{ color:"rgb(47, 93, 192)"}}>SOLOMON PLUS</span></h2>
             <div className={styles.second_section_top_box}>
                 <div className={styles.second_section_card}>
-                <Image src={Fill_2329} className={styles.second_section_card_imgtop}/>
-                <Image src={Group_1x} className ={styles.second_section_card_bottom_img}/>
+                <div className={styles.second_section_card_imgtop}><Image src={Fill_2329}/></div>
+                <div className ={styles.second_section_card_bottom_img}><Image src={Group_1x}/></div>
                     <p className={styles.second_section_card_text}>АВТОРСКИЙ МЕТОД</p>
                     <p className={styles.second_section_card_texttop}>C нами вы полюбите учится и достигните высоких результатов</p>
                 </div>
                 <div className={styles.second_section_card}>
-                <Image src={Fill_2329} className={styles.second_section_card_imgtop}/>
-                <Image src={Group_2} className = {styles.second_section_card_bottom_img}/>
+                <div className={styles.second_section_card_imgtop}><Image src={Fill_2329}/></div>
+                <div className = {styles.second_section_card_bottom_img}><Image src={Group_2}/></div>
                     <p className={styles.second_section_card_text}>ВЫГОДА</p>
                     <p className={styles.second_section_card_texttop}>Стоимость обучения ниже на 15% в сравнении с другими школами, а лучшие студенты получают стипендию</p>
                 </div>
                 <div className={styles.second_section_card}>
-                <Image src={Fill_2329} className={styles.second_section_card_imgtop}/>
-                <Image src={Group_3} className={styles.second_section_card_bottom_img}/>
+                <div className={styles.second_section_card_imgtop}><Image src={Fill_2329}/></div>
+                <div className = {styles.second_section_card_bottom_img}><Image src={Group_3}/></div>
                     <p className={styles.second_section_card_text}>РЕЗУЛЬТАТ</p>
                     <p className={styles.second_section_card_texttop}>Понять как говорить и мыслить на иностранном языке уже через 2 месяца</p>
                 </div>
                 <div className={styles.second_section_card}>
-                <Image src={Fill_2329} className={styles.second_section_card_imgtop}/>
-                <Image src={Group_4} className = {styles.second_section_card_bottom_img}/>
+                <div className={styles.second_section_card_imgtop}><Image src={Fill_2329}/></div>
+                <div className = {styles.second_section_card_bottom_img}><Image src={Group_4}/></div>
                     <p className={styles.second_section_card_text}>СОВРЕМЕННЫЕ И РЕДКИЕ ЯЗЫКИ</p>
                     <p className={styles.second_section_card_texttop}>Учите английский, французский, немецкий, а также турецкий, испанский, персидский, иврит, арабский, китайский, хинди</p>
                 </div>
@@ -224,13 +215,15 @@ const MainPage = () =>{
         </div>
         <div className={styles.second_section_snake}>
                 <div className={styles.second_section_snake_box}>
-                <h2 style={{fontSize: '46px'}} id={styles.snakebox}><span style={{color: "rgb(47, 93, 192)"}}>ПРОЦЕСС</span> ОБУЧЕНИЯ</h2>
+                <h2 style={{fontSize: '46px', paddingBottom: "5%"}} id={styles.snakebox}><span style={{color: "rgb(47, 93, 192)"}}>ПРОЦЕСС</span> ОБУЧЕНИЯ</h2>
                     <div className = {styles.second_section_snake_box_text}>
                         <p className={styles.second_section_snake_text}>Бесплатное пробное занятие на любую программу</p>
                         <p className={styles.second_section_snake_text}>3 месяца-ваше знание языка становится увереннее</p>
                         <p className={styles.second_section_snake_text}>9 месяцев</p>
                     </div>
-                    <Image src={Group_66} style={{width: "80%", position: "absolute"}}/>
+                    <div className = {styles.snake_img}>
+                    <Image src={Group_66} style={{width: "100%"}}/>
+                    </div>
                         <div className={styles.second_section_snake_block_box}>
                             <div className={styles.second_section_snake_block}>01</div>
                             <div className={styles.second_section_snake_block}>02</div>
@@ -247,20 +240,23 @@ const MainPage = () =>{
         </div>
         </div>
         <div className={styles.second_section_center_box}>
+                    <div className={styles.second_section_center_box_img}>
+                        <Image src={tild6337_group_313}  sizes="100vw"/>
+                    </div>
                     <div className={styles.second_section_center_box_top}>
-                    <Image src={Messaging_funCuate} style="width: 550px;"/>
+                    <Image src={Messaging_funCuate}/>
                         <ul>
-                            <h2 style={{fontSize: '46px'}}>ДЛЯ ВЗРОСЛЫХ</h2>
-                            <li>Составляем креативные уроки на Ваш вкус и любую тематику</li>
-                            <li>Увлекательные уроки и форматы обучения</li>
-                            <li>Расскажем о всех фишках, которые упростят Вам изучение языка с первых занятий</li>
-                            <li>Преподаватели на связи 24/7 для ответа на любые вопросы</li>
-                            <li>Со взрослыми мы берем программу Cambridge и обязательно изучаем Business English</li>
+                            <h2 style={{fontSize: '46px', paddingBottom: "5%"}}>ДЛЯ ВЗРОСЛЫХ</h2>
+                            <li className={styles.second_section_center_box_top_li}>Составляем креативные уроки на Ваш вкус и любую тематику</li>
+                            <li className={styles.second_section_center_box_top_li}>Увлекательные уроки и форматы обучения</li>
+                            <li className={styles.second_section_center_box_top_li}>Расскажем о всех фишках, которые упростят Вам изучение языка с первых занятий</li>
+                            <li className={styles.second_section_center_box_top_li}>Преподаватели на связи 24/7 для ответа на любые вопросы</li>
+                            <li className={styles.second_section_center_box_top_li}>Со взрослыми мы берем программу Cambridge и обязательно изучаем Business English</li>
                         </ul>
                     </div>
-                    <div className={styles.second_section_center_box_top} style={{padding: "0 0 5% 10%", color: "white", gap: "0"}}>
+                    <div className={styles.second_section_center_box_top} style={{padding: "0 0 5% 10%", color: "white"}}>
                         <ul >
-                            <h2 style={{fontSize: '46px'}}>С ДЕТЬМИ</h2>
+                            <h2 style={{fontSize: '46px', paddingBottom: "5%"}}>С ДЕТЬМИ</h2>
                             <li>Учим понимать и говорить уже с первых занятий</li>
                             <li>Наставляем и дружим с ребенком для достижения фундаментальных результатов</li>
                             <li>Находим подход к любому ребенку</li>
@@ -268,45 +264,58 @@ const MainPage = () =>{
                             <li>Предоставляем родителям видеозаписи уроков и отчеты об успеваемости ребенка</li>
                         </ul>
                         <Image src={CodingCuate_1} style="width: 550px;"/>
+                    </div>              
                     </div>
-        </div>
-        <div className={styles.second_section_bottom_box}>
-                    <h2  style={{width: "60%",fontSize: '46px'}}><span style={{color:"rgb(47, 93, 192)"}}>УЧИТЬ ИНОСТРАННЫЙ ЯЗЫК </span>C <span style={{color:"rgb(99, 168, 199)"}}> SOLOMON+</span> ЭТО</h2>
+                    <div className={styles.second_section_bottom_box}>
+                    <h2  style={{width: "60%",fontSize: '46px', paddingBottom: "5%"}}><span style={{color:"rgb(47, 93, 192)"}}>УЧИТЬ ИНОСТРАННЫЙ ЯЗЫК </span>C <span style={{color:"rgb(99, 168, 199)"}}> SOLOMON+</span> ЭТО</h2>
                         <div className={styles.general_banner}>
-                        <Image src={Group_67} style="height: 420px;"/>
+                        <div className={styles.class}>
+                        <Image src={Group_67} style="width: fit-content;"/>
+                        </div>
                             <div className = {styles.general_banner_content}>
                                 <div className={styles.general_banner_content_right} style={{alignItems: "baseline"}}>
-                                <Image src={Vector} style="width: 22px; height: 22px;"/>
+                                <div style={{width: "22px"}}>
+                                    <Image src={Vector} style="width: 22px; height: 22px;"/>
+                                </div>
                                     <div className={styles.second_section_bottom_text}>
-                                        <h3>КОМФОРТ</h3>
+                                        <h3 className={styles.second_section_bottom_text_h3} >КОМФОРТ</h3>
                                         <p className={styles.text_left}>Профессиональный подбор преподавателя для Вашего комфортного взаимодействия и обучения. Мы найдем подход для каждого студента, согласно его уровню, целям и планам.</p>
                                     </div>
                                 </div>
                                 <div className={styles.general_banner_content_right} style={{alignItems: "baseline"}}>
-                                <Image src={Vector}  style="width: 22px; height: 22px;"/>
-                                    <div className={styles.second_section_bottom_text}>
-                                        <h3>ВРЕМЯ</h3>
-                                        <p className={styles.text_left}>Выберите удобный график обучения или составьте свой план - мы подберем преподавателя, который всегда будет начинать урок вовремя или вернем стоимость занятия.</p>
-                                    </div>
+                                <div style={{width: "22px"}}>
+                                    <Image src={Vector}  style="width: 22px; height: 22px;"/>
                                 </div>
-                                <div className={styles.general_banner_content_right} style={{alignItems: "baseline"}}>
-                                <Image src={Vector}  style="width: 22px; height: 22px;"/>
-                        <div className={styles.second_section_bottom_text}>
-                            <h3>ЛОЯЛЬНОСТЬ И РЕЗУЛЬТАТ</h3>
-                            <p className={styles.text_left}>У каждого студента могут быть свои причины изучать язык. Не подходят наши программы? Составим персональный курс с индивидуальной стоимостью обучения.</p>
-                        </div>
-                    </div>
+                                <div className={styles.second_section_bottom_text}>
+                                    <h3 className={styles.second_section_bottom_text_h3}>ВРЕМЯ</h3>
+                                    <p className={styles.text_left}>Выберите удобный график обучения или составьте свой план - мы подберем преподавателя, который всегда будет начинать урок вовремя или вернем стоимость занятия.</p>
+                                </div>
+                                </div>
+                                <div className={styles.general_banner_content_right} style={{alignItems: "baseline"}}>              
+                                <div style={{width: "22px"}}>
+                                    <Image src={Vector}  style="width: 22px; height: 22px;"/>
+                                </div>
+                            <div className={styles.second_section_bottom_text}>
+                                <h3  className={styles.second_section_bottom_text_h3}>ЛОЯЛЬНОСТЬ И РЕЗУЛЬТАТ</h3>
+                                <p className={styles.text_left}>У каждого студента могут быть свои причины изучать язык. Не подходят наши программы? Составим персональный курс с индивидуальной стоимостью обучения.</p>
+                            </div>
+                            </div>
                             </div>
                         </div>
                     <div className={styles.second_section_bottom_box_reviews}>
-                        <h2 style={{color: "#2f5dc0",fontSize: '46px'}}>УЧЕНИКИ СТАНОВЯТСЯ <br/>НАШИМИ ДРУЗЬЯМИ</h2>
+                        <h2 style={{color: "#2f5dc0",fontSize: '46px', paddingBottom: "5%"}}>УЧЕНИКИ СТАНОВЯТСЯ <br/>НАШИМИ ДРУЗЬЯМИ</h2>
                         <div className={styles.phone_img_bottom}>
                         <Image src={img1}/>
                         <Image src={img2}/>
                         <Image src={img3}/>
                         </div>
                         <div className={styles.phone_img}>
-                        <Image src={Group_2981}/>
+                            <div className={styles.phone_under_img}>
+                            <Image src={IMG_4022}/>
+                            </div>
+                            <div className={styles.phone_under_img}>
+                            <Image src={Group_2981} style={{width: '270px'}}/>
+                            </div>
                         </div>
                     </div>
         </div>
@@ -315,17 +324,23 @@ const MainPage = () =>{
         mozBoxShadow: "-1px -1px 8px 10px rgba(221, 222, 223, 0.50)",
         boxShadow: "-1px -1px 8px 10px rgba(221, 222, 223, 0.50)"}}/>
                     <div className={styles.second_section_form_box_text}>
-                        <h2 style={{color: "white",fontSize: '46px'}}>ГОСУДАРСТВЕННАЯ ЛИЦЕНЗИЯ</h2>
+                        <h2 style={{color: "white",fontSize: '46px', paddingBottom: "5%"}}>ГОСУДАРСТВЕННАЯ ЛИЦЕНЗИЯ</h2>
                         <div className={styles.second_section_form_box_img}>
-                        <Image src={img1B} style="width: 81px;"/>
+                        <div className={styles.section_form_mark_img}>
+                            <Image src={img1B} style="width: 81px;"/>
+                        </div>
                             <p>Государство одобряет наши программы</p>
                         </div>
                         <div className={styles.second_section_form_box_img}>
-                        <Image src={img2B} style="width: 81px;"/>
+                        <div className={styles.section_form_mark_img}>
+                            <Image src={img2B} style="width: 81px;"/>
+                        </div>
                             <p>С помощью лицензии сделай налоговый вычет</p>
                         </div>
                         <div className={styles.second_section_form_box_img}>
-                        <Image src={img3B} style="width: 81px;"/>
+                        <div className={styles.section_form_mark_img}>
+                            <Image src={img3B} style="width: 81px;"/>
+                        </div>
                             <p>Оплати обучение материнским капиталом</p>
                         </div>
                     </div>
@@ -333,10 +348,10 @@ const MainPage = () =>{
     </section>
     <section className={styles.bottom_section}>
                 <div className={styles.bottom_section_top}>
-            <h2 style={{fontSize: '46px'}}><span style={{color: "rgb(47, 93, 192)"}}>ПРОГРАММЫ </span>ОБУЧЕНИЯ</h2>
+            <h2 style={{fontSize: '46px', paddingBottom: "5%"}}><span style={{color: "rgb(47, 93, 192)"}}>ПРОГРАММЫ </span>ОБУЧЕНИЯ</h2>
             <div class={styles.bottom_section_top_box}>
                 <div className={styles.bottom_section_top_card}>
-                    <h3>ЭКОСИСТЕМА</h3>
+                    <h3 style={{paddingBottom: "10%"}}>ЭКОСИСТЕМА</h3>
                     <ul>Бесплатно
                         <li>Бесплатное обучение во всех соцсетях</li>
                         <li>Окружи себя языком везде и погрузись в языковую среду</li>
@@ -361,7 +376,7 @@ const MainPage = () =>{
                     <button className={styles.general_banner_form_button} type="submit"><a href="#form_submit">НАЧАТЬ ОБУЧЕНИЕ</a></button>
                 </div>
                 <div className={styles.bottom_section_top_card}>
-                    <h3>ИНДИВИДУАЛЬНОЕ ОБУЧЕНИЕ</h3>
+                    <h3 style={{paddingBottom: "10%"}}>ИНДИВИДУАЛЬНОЕ ОБУЧЕНИЕ</h3>
                     <ul><span style={{color: "gray", textDecoration: "line-through"}}>1200 ₽ </span>800 ₽/ 1 занятие англ. яз.<br/>
                         <span style={{color: "gray", textDecoration: "line-through"}}>1300 ₽ </span>900 ₽/ 1 занятие кит. яз.
                         <li>Бесплатный пробный урок, определим уровень и программу обучения</li>
@@ -373,7 +388,7 @@ const MainPage = () =>{
                     <button className={styles.general_banner_form_button} type="submit"><a href="#form_submit">НАЧАТЬ ОБУЧЕНИЕ</a></button>
                 </div>
                 <div className={styles.bottom_section_top_card}>
-                    <h3>ОСНОВНАЯ ПРОГРАММА "КИТАЙСКИЙ ЯЗЫК"</h3>
+                    <h3 style={{paddingBottom: "10%"}}>ОСНОВНАЯ ПРОГРАММА "КИТАЙСКИЙ ЯЗЫК"</h3>
                     <ul>5 499 ₽
                         <li>Профессиональные преподаватели</li>
                         <li>3 занятия по 1.5 часа в неделю</li>
@@ -384,7 +399,7 @@ const MainPage = () =>{
                     <button className={styles.general_banner_form_button} type="submit"><a href="#form_submit">НАЧАТЬ ОБУЧЕНИЕ</a></button>
                 </div>
                 <div className={styles.bottom_section_top_card}>
-                    <h3>ЯЗЫКОВОЙ КЛУБ</h3>
+                    <h3 style={{paddingBottom: "10%"}}>ЯЗЫКОВОЙ КЛУБ</h3>
                     <ul>от 3 500 ₽
                         <li>Бесплатный пробный урок</li>
                         <li>2 занятия по 1.5 часа в неделю</li>
@@ -397,7 +412,7 @@ const MainPage = () =>{
                     <button className={styles.general_banner_form_button}  type="submit"><a href="#form_submit">НАЧАТЬ ОБУЧЕНИЕ</a></button>
                 </div>
                 <div className={styles.bottom_section_top_card}>
-                    <h3>ЭКСПРЕСС-ПРОГРАММА "АНГЛИЙСКИЙ ДЛЯ ПУТЕШЕСТВИЙ"</h3>
+                    <h3 style={{paddingBottom: "10%"}}>ЭКСПРЕСС-ПРОГРАММА "АНГЛИЙСКИЙ ДЛЯ ПУТЕШЕСТВИЙ"</h3>
                     <ul>15 999 ₽ / 2 мес.
                         <li>3 занятия по 1.5 часа в неделю</li>
                         <li>Группы из 6 человек</li>
@@ -411,8 +426,9 @@ const MainPage = () =>{
         </div>
                 <div className={styles.bottom_section_center}>
             <div className={styles.bottom_section_center_box}>
-            <Image src={centr} style={{width: "430px", position: "absolute", zIndex: "-2", marginTop: "20%"}}/>
-                    
+            <div className={styles.bottom_section_box_img}>
+                <Image src={centr} style="width: fit-content"/>
+            </div>
                 {/* <iframe style={{marginleft: "40%",
                         borderRadius: "20px",
                         width: "300", height: "520",
@@ -423,7 +439,7 @@ const MainPage = () =>{
                 </iframe> */}
             </div>
             <div className={styles.bottom_section_center_box}>
-                <h2 style={{fontSize: '46px'}}>ПРЕПОДАВАТЕЛИ</h2>
+                <h2 style={{fontSize: '46px', paddingBottom: "5%"}}>ПРЕПОДАВАТЕЛИ</h2>
                 <p>ТОЖЕ ЛЮДИ,СО СВОИМИ ИНТЕРЕСАМИ. ВЫБЕРИ СВОЕГО И СОВЕРШЕНСТВУЙ ИНОСТРАННЫЙ ЯЗЫК, РАЗГОВАРИВАЯ НА ЛЮБИМЫЕ ТЕМЫ</p>
                 <ul className={styles.bottom_section_last_box}>
                     <li>ЯЗЫК<span className={styles.last_attribute}>Французский</span></li>
@@ -447,16 +463,19 @@ const MainPage = () =>{
                 <button a href="https://telegram.me/solomonplus_bot" className={styles.general_banner_form_button} type="submit">ПОДКЛЮЧИТЬ ЧАТ - БОТ SOLOMON+</button>
             </div>
             <div className={styles.bottom_section_text}>
-                <h2 style={{fontSize: '46px'}}>ЭКОСИСТЕМА</h2>
+                <h2 style={{fontSize: '46px', paddingBottom: "5%"}}>ЭКОСИСТЕМА</h2>
                 <p>БЕСПЛАТНО ИЗУЧАЙ АНГЛИЙСКИЙ ЯЗЫК В ПРИВЫЧНЫХ СОЦСЕТЯХ</p>
                 <p id={styles.bottom_section_p_style}>ВСЕ СОЦИАЛЬНЫЕ СЕТИ</p>
-                <div>
+                <div className={styles.bottom_section_logo_img}>
                     <Image src={dzen} style="width: 42px;"/>
                     <Image src={telegram} style="width: 42px;"/>
                     <Image src={tiktok} style="width: 42px;"/>
                     <Image src={vk} style="width: 42px;"/>
                 </div>
                 <div className={styles.bottom_button_form}>
+                    <div className={styles.bottom_button_form_img}>
+                        <Image src={Screenshot_44} style="borderRadius: 30px;"/>
+                    </div>
                     <p>Киноклуб SOLOMON</p>
                     <p>Смотрим кино и сериалы в оригинале, развлекаемся и совершенствуем знание языка</p>
                     <label className={styles.bottom_button_form_label}>
@@ -468,8 +487,10 @@ const MainPage = () =>{
         </div>
                 <div id={styles.form_submit} className={styles.bottom_section_form_call}>
             <div className={styles.bottom_section_form_call_left}>
-                <p>Попробовать <span style={{color: "rgb(15, 93, 192)"}}>БЕСПЛАТНО</span> + в подарок вы получаете чек-лист по всем временам английского языка с практическими заданиями</p>
-                <Image src={surprisebox} style={{ width: "128px", transform: "rotate(20deg)"}}/>
+                    <p>Попробовать <span style={{color: "rgb(15, 93, 192)"}}>БЕСПЛАТНО</span> + в подарок вы получаете чек-лист по всем временам английского языка с практическими заданиями</p>
+                <div className={styles.form_call_left_img}>
+                    <Image src={surprisebox}/>
+                </div>
             </div>
             <div className={styles.bottom_section_form_call_right}>
                 <input  className={styles.action_form} type="text" placeholder="Имя"/>
@@ -490,40 +511,22 @@ const MainPage = () =>{
                 </form>
                 <input className={styles.action_form} type="text" placeholder="Текущий уровень развития языка"/>
                 <label>
-                    <input className={styles.action_check_form} type="checkbox"/> Согласен (на) с политикой конфиденциальности</label>
+                    <input className={styles.action_check_form} type="checkbox"/> Согласен (на) с <a href="https://solomon.plus/privacy" style={{color: "#ff8562"}}>политикой конфиденциальности</a></label>
                 <button className={styles.general_banner_form_button} type="submit">Отправить</button>
             </div>
         <div className={styles.bottom_section_blog}></div>
         </div>
-                <div className={styles.bottom_section_form_blog}>
-            <div className={styles.bottom_section_form_text}>
-                <h2 style={{fontSize: '46px'}} id={styles.blog}>БЛОГ</h2>
-                <h3>ДЕЛИМСЯ ПОЛЕЗНОЙ ИНФОРМАЦИЕЙ ДЛЯ НАШИХ СТУДЕНТОВ</h3>
-            </div>
-            <div className={styles.bottom_section_form_blog_box}>
-                <div className={styles.bottom_section_form_box}>
-                    <div className={styles.bottom_section_form_box_img}>
-                    <Image src={blog1}/>
-                        <h5>7 ПОЛЕЗНЫХ ПРИВЫЧЕК В ИЗУЧЕНИИ ЯЗЫКА</h5>
-                        <p>03/11/2022</p>
-                    </div>
+        {posts.length > 0 &&
+            <div style={{cursor: 'pointer'}} className={styles.bottom_section_form_blog} onClick={()=>router.push(`/blog`)}>
+                <div className={styles.bottom_section_form_text}>
+                    <h2 style={{fontSize: '46px', paddingBottom: "5%"}} id={styles.blog}>БЛОГ</h2>
+                    <h3 style={{paddingBottom: "5%"}}>ДЕЛИМСЯ ПОЛЕЗНОЙ ИНФОРМАЦИЕЙ ДЛЯ НАШИХ СТУДЕНТОВ</h3>
                 </div>
-                <div className={styles.bottom_section_form_box}>
-                    <div className={styles.bottom_section_form_box_img}>
-                    <Image src={blog2}/>
-                        <h5>ТОП 5 ЛАЙФХАКОВ В ИЗУЧЕНИИ КИТАЙСКОГО ЯЗЫКА</h5>
-                        <p>03/11/2022</p>
-                    </div>
+                <div className={styles.bottom_section_form_blog_box}>
+                    {posts}
                 </div>
-                <div className={styles.bottom_section_form_box}>
-                    <div className={styles.bottom_section_form_box_img}>
-                    <Image src={blog3}/>
-                        <h5>10 СОВРЕМЕННЫХ СЕРВИСОВ ДЛЯ ИЗУЧЕНИЯ ИНОСТРАННОГО ЯЗЫКА В 2022г.</h5>
-                        <p>03/11/2022</p>
-                    </div>
-                </div>
-            </div>
-        </div>  
+            </div>  
+        }
     </section>
         <footer className={styles.footer_section}>
         <div className={styles.footer_section_box}>
@@ -557,7 +560,7 @@ const MainPage = () =>{
                 </div>
             <div id={styles.footer_section_text}>
                 <p>© 2022 SOLOMON PLUS</p>
-                <p>Политика конфиденциальности</p>
+                <a href="https://solomon.plus/privacy" style={{color: "#ff8562", fontSize: "12px"}}>Политика конфиденциальности</a>
                 <p>ИП МУЧКАЕВА ДИАНА ДМИТРИЕВНА</p>
                 <p>ОГРНИП 322547600078525</p>
                 <p>ИНН 540959551715</p>
@@ -582,4 +585,10 @@ const MainPage = () =>{
     )
 }
 
+
 export default MainPage
+
+export const getServerSideProps = async (ctx) => {
+    const server = getPosts(ctx)
+    return server
+}

@@ -6,6 +6,9 @@
 
 .editor .editorContainer{
     width: 750px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: white;
     padding: 30px;
     border-radius: 10px;
@@ -15,7 +18,7 @@
 }
 
 .editor .header{
-    width: 600px;
+    width: 650px;
     height: 50px;
     border: none;
     background: none;
@@ -27,7 +30,7 @@
 }
 
 .editor .editorjs{
-    width: 600px;
+    width: 650px;
 }
 
 .editor .buttons{

@@ -1,3 +1,14 @@
+.visits{
+    display: flex;
+    width: 100%;
+    
+}
+
+.visits .students{
+    width: 100%;
+    margin-left: 100px;
+}
+
 .info{
     display: flex;
 }
@@ -7,9 +18,6 @@
     margin-right: 10px;
 }
 
-.students,.teachers{
-    margin-top: 30px;
-}
 
 .studentsTitle,.teachersTitle{
     font-size: 22px;
@@ -51,4 +59,63 @@
 
 .select div{
     font-size: 14px;
+}
+
+.dateRange{
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 40px;
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.dateRange .arrow{
+    width: 20%;
+    height: 100%;
+    cursor: pointer;
+    background: rgb(44,43,124);
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.dateRange .date{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+.visits  .appointments{
+    width: 300px;
+    height: 80%;
+    margin-top: 20px;
+}
+
+.visits .appointments .noAppointments{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.visits .appointments .appointment{
+    display: flex;
+    width: 100%;
+    background: white;
+    padding: 15px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px transparent solid;
+}
+.visits .appointments .appointment:hover{
+    border: 1px rgb(44,43,124) solid;
+}
+
+.visits .appointments .appointment + .appointment{
+    margin-top: 10px;
+}
+
+.visits .appointments .appointment .startDate{
+    margin-right: 10px;
 }

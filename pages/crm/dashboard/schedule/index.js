@@ -5,7 +5,7 @@ import { getSchedule } from '../../../../controllers/pagesController/getSchedule
 const Schedule = (props) => {
     return (
         <Container titlte={'Расписание'} header={'Расписание'} role={props.role}>
-            <ScheduleComponent appointments={props.appointments} lessons={props.lessons}/>
+            <ScheduleComponent appointments={props.appointments} lessons={props.lessons} role={props.role}/>
         </Container>
     )
 }

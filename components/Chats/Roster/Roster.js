@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { style } from "@mui/system"
 import { useRouter } from "next/router"
 
-const Roster = ({styles,chats,user_id}) => {
+const Roster = ({styles,chats,user_id,role}) => {
 
     const router = useRouter()
 
@@ -54,7 +54,7 @@ const Roster = ({styles,chats,user_id}) => {
         <div className={styles.roster}>
             {chatsMap}
             <div className={styles.createBtnDiv}>
-                <button className={styles.createBtn} onClick={()=>router.push('/crm/dashboard/chats/create')}>Создать чат</button>
+                {role != 'Ученик' && <button className={styles.createBtn} onClick={()=>router.push('/crm/dashboard/chats/create')}>Создать чат</button>}
             </div>
         </div>
     )

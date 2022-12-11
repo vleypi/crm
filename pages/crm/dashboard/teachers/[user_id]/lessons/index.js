@@ -14,8 +14,8 @@ const TeacherLessons = ({teacher,lessons,role}) => {
                 page={'teachers'}
                 component={{
                     addInfo: teacher.phone, 
-                    name: teacher.name, avatar: 
-                    teacher.name[0],
+                    name: teacher.name, 
+                    avatar: teacher.avatar,
                     popup_type: 'teachers',
                     functions: teacher
                 }}

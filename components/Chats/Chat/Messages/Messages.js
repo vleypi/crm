@@ -15,15 +15,19 @@ const Messages = ({styles,chat,user_id}) => {
         if(socket){
 
             socket.on('getMessage',(message)=>{
-                setMessages((prev)=>{
-                    return [...prev,message]
-                })
+                if(chat.chat_id == message.chat_id){
+                    setMessages((prev)=>{
+                        return [...prev,message]
+                    })
+                }
             })
 
             socket.on('deletedMessage',(message)=>{
-                setMessages((prev)=>{
-                    return prev.filter(mes=>mes.message_id != message.message_id)
-                })
+                if(chat.chat_id == message.chat_id){
+                    setMessages((prev)=>{
+                        return prev.filter(mes=>mes.message_id != message.message_id)
+                    })
+                }
             })
         }
     },[socket])
@@ -94,7 +98,7 @@ const Messages = ({styles,chat,user_id}) => {
                 
                 {
                     u.messages.map((mes)=>(
-                        <Message styles={styles} user_id={user_id} message={mes} contextmenuHandler={contextmenuHandler} contextmenu={contextmenu} contextmenuFunctions={contextmenuFunctions}/>
+                        <Message key={mes.message_id} styles={styles} user_id={user_id} message={mes} contextmenuHandler={contextmenuHandler} contextmenu={contextmenu} contextmenuFunctions={contextmenuFunctions}/>
                     ))
                 }
                 <div ref={messagesEndRef} />

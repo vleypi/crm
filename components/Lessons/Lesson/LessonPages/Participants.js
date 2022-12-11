@@ -30,7 +30,7 @@ const Participants = ({participants,lesson,role}) => {
 
         dispatch(setPopupType({
             type: 'right',
-            contentType: "lessons_user",
+            contentType: "lessons",
             functions: lesson
         }))
     }
@@ -49,12 +49,12 @@ const Participants = ({participants,lesson,role}) => {
             <h3>Ученики <span>{participants_students_list.length}</span></h3>
             <div className={styles.participantsStudents}>
                 {participants_students_list}
-                {addParticipants}
+                {/* {addParticipants} */}
             </div>
             <h3>Педагоги <span>{participants_teachers_list.length}</span></h3>
             <div className={styles.participantsTeachers}>
                 {participants_teachers_list}
-                {addParticipants}
+                {/* {addParticipants} */}
             </div>
         </div>
     )

@@ -18,6 +18,8 @@ const Profile = (props) =>{
         }))
     }
 
+    console.log(props)
+
     return(
         <div className={styles.profile}>
             <div className={styles.profileHeader}>

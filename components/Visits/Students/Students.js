@@ -2,12 +2,15 @@ import { useRouter } from 'next/router'
 import Select from 'react-select'
 import { setVisitStatus } from '../../../controllers/visitsController/setVisitStatus'
 
-const Students = ({styles,participants,statuses_visits,visits_users,visit_id}) =>{
+const Students = ({styles,participants,statuses_visits,visits_users,visit_id,role,lesson}) =>{
 
     const router = useRouter()
 
+
+
     const selectHandler = async (option,student) =>{
-        await setVisitStatus(option,student,visit_id,router.query.lesson_id)
+        router.query.lesson_id = lesson.lesson_id
+        await setVisitStatus(option,student,visit_id,router.query)
         router.replace(router.asPath)
     }
 
@@ -31,6 +34,7 @@ const Students = ({styles,participants,statuses_visits,visits_users,visit_id}) =
                     statuses_visits.find(status=>status.status_id == visits_users.find(visit=>visit.user_id == student.user_id).status_id) :
                     null
                 }
+                isDisabled={role == 'Ученик'}
             />
         </div>
     ))
@@ -39,7 +43,7 @@ const Students = ({styles,participants,statuses_visits,visits_users,visit_id}) =
 
     return(
         <div className={styles.students}>
-            <p className={styles.studentsTitle}>Ученики</p>
+            {role !== 'Ученик' && <p className={styles.studentsTitle}>Ученики</p>}
             <div className={styles.studentsContainer}>
                 {students}
             </div>

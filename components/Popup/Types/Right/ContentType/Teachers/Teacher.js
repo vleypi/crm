@@ -58,7 +58,7 @@ const Teacher = ({popup}) =>{
             <div className={popupStyles.justifyContent}>
                 <p>Ученик</p>
             </div>
-            <div className={popupStyles.justifyContent}>
+            {/* <div className={popupStyles.justifyContent}>
                 <p>Статус</p>
                 <Select 
                     className={popupStyles.select}
@@ -68,7 +68,7 @@ const Teacher = ({popup}) =>{
                     onChange={(e)=>selectHandler(e,'status')}
                     noOptionsMessage={() => 'Нет вариантов'}
                 />
-            </div>
+            </div> */}
             <div className={popupStyles.justifyContent}>
                 <p>ФИО</p>
                 <input 

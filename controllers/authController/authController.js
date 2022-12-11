@@ -8,7 +8,7 @@ export const login = async (inputValues,dispatch,router) =>{
             password: inputValues.password
         }, {withCredentials: true})
         dispatch(setProfile(res.data))
-        router.replace('/crm/dashboard/main')
+        router.replace('/crm/dashboard/profile')
     }
     catch(err){
         return err.response.data
@@ -65,5 +65,16 @@ export const refreshTokenAuth = async (request,dispatch) =>{
     catch(err){
         dispatch(setProfile({name: null,surname: null,email: null,user_id: null,phone: null,role: null,token: null}))
         // dispatch(setPreloader({prealoder: false}))
+    }
+}
+
+export const logout = async (router,dispatch) =>{
+    try{
+        const res = await axios.post('http://localhost:5001/api/auth/logout',{}, {withCredentials: true})
+        dispatch(setProfile({name: null,surname: null,email: null,user_id: null,phone: null,role: null,token: null}))
+        router.replace('/auth')
+    }
+    catch(err){
+        return err.response.data
     }
 }

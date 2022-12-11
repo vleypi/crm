@@ -9,6 +9,7 @@ const Profile = (props) =>{
     const router = useRouter()
     const dispatch = useDispatch()
 
+
     const links = [
         {text: 'Занятия',href: `/crm/dashboard/${props.page}/${props.user.user_id}/lessons`},
         {text: 'Расписание', href:  `/crm/dashboard/${props.page}/${props.user.user_id}/schedule`},
@@ -28,7 +29,9 @@ const Profile = (props) =>{
         <div className={styles.profile}>
             <div className={styles.profileHeader}>
                 <div className={styles.info}>
-                        <div className={styles.avatar}>{props.component.avatar}</div>
+                        <div className={styles.avatar}>
+                            {props.user.avatar ? <img src={'http://localhost:5001'+props.user.avatar}/> : `${props.user.name[0]}`}
+                        </div>
                         <div className={styles.mainInfo}>
                             <div style={{display: 'flex'}}>
                                 <p className={styles.name}>{props.component.name}</p>

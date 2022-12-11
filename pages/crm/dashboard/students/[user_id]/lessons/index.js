@@ -6,7 +6,6 @@ import Profile from '../../../../../../components/Container/profilesContainer/Pr
 
 
 const Student = ({student,lessons,role}) => {
-    
     return (
         <Container titlte='Профиль ученика' header='Профиль ученика' role={role}>
             <Profile 
@@ -15,7 +14,7 @@ const Student = ({student,lessons,role}) => {
                 component={{
                     addInfo: student.phone, 
                     name: student.name, 
-                    avatar: student.name[0],
+                    avatar: student.avatar,
                     popup_type: 'students',
                     functions: student
                 }}

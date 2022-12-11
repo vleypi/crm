@@ -37,16 +37,26 @@
     background: rgba(255, 255, 255, 0.493);
 }
 
+
+
 .blog .blogs .post .mainImgPost{
     display: flex;
     align-items: center;
-    width: 300px;
-    
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    background-color: white;
+    margin-right: 10px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
 }
 
 .blog .blogs .post .mainImgPost img{
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    display: block; 
+    min-width: 100%;   
+    min-height: 100%;   
+    -ms-interpolation-mode: bicubic;
 }
 
 .blog .blogs .post .headerPost{

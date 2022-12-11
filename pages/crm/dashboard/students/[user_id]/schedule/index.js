@@ -15,7 +15,7 @@ const Student = (props) => {
                 component={{
                     addInfo: props.student.phone, 
                     name: props.student.name, 
-                    avatar: props.student.name[0],
+                    avatar: props.student.avatar,
                     popup_type: 'students',
                     functions: props.student
                 }}

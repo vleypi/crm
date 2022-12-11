@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import React from 'react'
 
-const Header = ({chat,styles,users}) => {
+const Header = ({chat,styles,users,role}) => {
 
     const router = useRouter()
 
@@ -21,8 +21,10 @@ const Header = ({chat,styles,users}) => {
         return five;
     }
 
+    console.log(role)
+
     return (
-        <div className={styles.header} onClick={()=>router.push('/crm/dashboard/chats/'+chat.chat_id+'/settings')}>
+        <div className={styles.header} onClick={()=>router.push(role != 'Ученик' ? '/crm/dashboard/chats/'+chat.chat_id+'/settings' : router.asPath)}>
             <div className={styles.chat_name}>
                 {chat.chat_name}
             </div>

@@ -1,14 +1,22 @@
 import { useState } from "react"
 import styles from '../../styles/blog_crm/blog.module.css'
-import blog from '../../images/blog1.jpg'
-import blog2 from '../../images/blog2.jpg'
-import blog3 from '../../images/blog3.jpg'
-import Image from "next/image"
 import { useRouter } from "next/router"
 
 const BlogCrm = (props) => {
 
     const router = useRouter()
+
+
+    const posts = props.posts.map((post)=>(
+        <div className={styles.post} onClick={()=>router.push(`/crm/dashboard/blog/create?blog_id=${post.blog_id}`)}>
+            <div className={styles.mainImgPost}>
+                <img src={post.image} />
+            </div>
+            <div className={styles.headerPost}>
+                <h2>{post.header}</h2>
+            </div>
+        </div>
+    ))
 
     return (
         <div className={styles.blog}>
@@ -19,30 +27,7 @@ const BlogCrm = (props) => {
                 </button>
             </div>
             <div className={styles.blogs}>
-                <div className={styles.post}>
-                    <div className={styles.mainImgPost}>
-                            <Image src={blog} />
-                        </div>
-                        <div className={styles.headerPost}>
-                            <h2>7 ПОЛЕЗНЫХ ПРИВЫЧЕК В ИЗУЧЕНИИ ЯЗЫКА</h2>
-                    </div>
-                </div>
-                <div className={styles.post}>
-                    <div className={styles.mainImgPost}>
-                        <Image src={blog2}/>
-                    </div>
-                    <div className={styles.headerPost}>
-                        <h2>ТОП 5 ЛАЙФХАКОВ В ИЗУЧЕНИИ КИТАЙСКОГО ЯЗЫКА</h2>
-                    </div>
-                </div>
-                <div className={styles.post}>
-                    <div className={styles.mainImgPost}>
-                        <Image src={blog3}/>
-                    </div>
-                    <div className={styles.headerPost}>
-                        <h2>10 СОВРЕМЕННЫХ СЕРВИСОВ ДЛЯ ИЗУЧЕНИЯ ИНОСТРАННОГО ЯЗЫКА В 2022г.</h2>
-                    </div>
-                </div>
+               {posts}
             </div>
         </div>
     )

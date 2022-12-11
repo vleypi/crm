@@ -13,7 +13,7 @@ const Teachers = (props) => {
             <td>{teacher.phone ? teacher.phone : 'Не указан'}</td>
             <td>{teacher.balance}</td>
             <td>{teacher.gender ? teacher.gender : 'Не указан'}</td>
-            <td>Активный</td>
+            {/* <td>Активный</td> */}
         </tr>
     ))
 
@@ -26,7 +26,7 @@ const Teachers = (props) => {
                         <th>Телефон</th>
                         <th>Баланс</th>
                         <th>Пол</th>
-                        <th>Статус</th>
+                        {/* <th>Статус</th> */}
                     </tr>
                 </thead>
                 <tbody>

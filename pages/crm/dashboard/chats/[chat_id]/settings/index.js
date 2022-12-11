@@ -27,6 +27,15 @@ export const getServerSideProps = async (ctx) => {
             })
         }
 
+        if(chats.role == 'Ученик'){
+            return {
+                redirect: {
+                    permanent: false,
+                    destination: "/404",
+                }
+            }
+        }
+
         return {
             props: Object.assign(chats,chat,roster)
         }
