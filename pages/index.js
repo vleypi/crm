@@ -43,7 +43,7 @@ import Screenshot_44 from '../images/main_page/img/Screenshot_44.jpg'
 
 
 
-import Typed from 'react-typed';
+// import Typed from 'react-typed';
 import { Router, useRouter } from 'next/router'
 import { getPosts } from '../controllers/pagesController/getPosts'
 
@@ -94,11 +94,12 @@ const MainPage = (props) =>{
                         <div className={styles.js}>
                             <h1 style={{fontSize: "56px"}}>
                             <span style={{color:"rgb(47, 93, 192)"}}>ПРОСТО </span>СКАЖИ МИРУ
-                            <span className={styles.p_text} id={styles.text}>   <Typed
+                            <span className={styles.p_text} id={styles.text}>  HELLO  
+                            {/* <Typed
                                     strings={["HELLO", "BONJOUR", "HALLO","你好","HEY"]}
                                     typeSpeed={150}
                                     loop
-                                />
+                                /> */}
                                  
                             </span></h1>
                         </div>
