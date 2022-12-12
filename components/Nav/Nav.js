@@ -35,7 +35,7 @@ const Nav = ({role}) =>{
             {profile.name &&<div className={styles.account}>
                     <>
                         <div className={styles.avatar}>
-                            {profile.avatar ? <img src={`https://62.113.96.105:5001` + profile.avatar} /> : profile.name[0]}
+                            {profile.avatar ? <img src={`http://62.113.96.105:5001` + profile.avatar} /> : profile.name[0]}
                         </div>
                         <div className={styles.accountInfo}>
                             <p className={styles.name}>{profile.name}</p>
