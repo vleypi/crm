@@ -5,7 +5,7 @@ import {errorRedirect} from '../errorRedirect/errorRedirect'
 export const getStudents = async (ctx) =>{
     try{
         const cookies = nookies.get(ctx)
-        const res = await axios.get(`${process.env.API}/api/pages/getStudents`, {
+        const res = await axios.get(`http://62.113.96.105:5001/api/pages/getStudents`, {
             data: {
                 ref: cookies.ref ? cookies.ref : '',
                 acc: cookies.acc ? cookies.acc : ''

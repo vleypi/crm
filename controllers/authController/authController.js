@@ -3,7 +3,7 @@ import { setProfile } from '../../store/slices/profile'
 
 export const login = async (inputValues,dispatch,router) =>{
     try{
-        const res = await axios.post(`${process.env.API}/api/auth/login`,{
+        const res = await axios.post(`http://62.113.96.105:5001/api/auth/login`,{
             email: inputValues.email,
             password: inputValues.password
         }, {withCredentials: true})
@@ -18,7 +18,7 @@ export const login = async (inputValues,dispatch,router) =>{
 export const setUser = async (functions) =>{
     try{
 
-        const res = await axios.post(`${process.env.API}/api/auth/setUser`,{
+        const res = await axios.post(`http://62.113.96.105:5001/api/auth/setUser`,{
             status: functions.status,
             gender: functions.gender,
             phone: functions.phone,
@@ -36,7 +36,7 @@ export const setUser = async (functions) =>{
 
 export const auth = async (dispatch) =>{
     try{
-        const res = await axios.post(`${process.env.API}/api/user/auth`, {},{
+        const res = await axios.post(`http://62.113.96.105:5001/api/user/auth`, {},{
             withCredentials: true
         })
         dispatch(setProfile(res.data.user))
@@ -57,7 +57,7 @@ export const auth = async (dispatch) =>{
 
 export const refreshTokenAuth = async (request,dispatch) =>{
     try{
-        await axios.post(`${process.env.API}/api/user/refresh`, {},{
+        await axios.post(`http://62.113.96.105:5001/api/user/refresh`, {},{
             withCredentials: true
         })
         request(dispatch)
@@ -70,7 +70,7 @@ export const refreshTokenAuth = async (request,dispatch) =>{
 
 export const logout = async (router,dispatch) =>{
     try{
-        const res = await axios.post(`${process.env.API}/api/auth/logout`,{}, {withCredentials: true})
+        const res = await axios.post(`http://62.113.96.105:5001/api/auth/logout`,{}, {withCredentials: true})
         dispatch(setProfile({name: null,surname: null,email: null,user_id: null,phone: null,role: null,token: null}))
         router.replace('/auth')
     }
