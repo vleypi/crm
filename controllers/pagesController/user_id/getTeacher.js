@@ -5,7 +5,7 @@ import nookies from 'nookies'
 export const getTeacherLessons = async (ctx) =>{
     try{
         const cookies = nookies.get(ctx)
-        const res = await axios.get(`http://62.113.96.105:5001/api/pages/getTeacher/lessons?user_id=${ctx.params.user_id }`, {
+        const res = await axios.get(`https://62.113.96.105:5001/api/pages/getTeacher/lessons?user_id=${ctx.params.user_id }`, {
             data: {
                 ref: cookies.ref ? cookies.ref : '',
                 acc: cookies.acc ? cookies.acc : '',
@@ -28,7 +28,7 @@ export const getTeacherLessons = async (ctx) =>{
 export const getTeacherSchedule = async (ctx) =>{
     try{
         const cookies = nookies.get(ctx)
-        const res = await axios.get(`http://62.113.96.105:5001/api/pages/getTeacher/schedule?user_id=${ctx.params.user_id }`, {
+        const res = await axios.get(`https://62.113.96.105:5001/api/pages/getTeacher/schedule?user_id=${ctx.params.user_id }`, {
             data: {
                 ref: cookies.ref ? cookies.ref : '',
                 acc: cookies.acc ? cookies.acc : '',
