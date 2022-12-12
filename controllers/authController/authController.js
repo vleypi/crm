@@ -40,6 +40,10 @@ export const auth = async (dispatch) =>{
             withCredentials: true
         })
         dispatch(setProfile(res.data.user))
+        const res2 = await axios.post(`http://62.113.96.105:5001/`, {},{
+            withCredentials: true
+        })
+        console.log(res2)
         // dispatch(setPreloader({preloader: false}))
     }
     catch(err){
