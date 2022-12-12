@@ -588,6 +588,11 @@ const MainPage = (props) =>{
 export default MainPage
 
 export const getServerSideProps = async (ctx) => {
-    const server = getPosts(ctx)
-    return server
+    // const server = getPosts(ctx)
+    // return server
+    return{
+        props: {
+            posts: []
+        }
+    }
 }

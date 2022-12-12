@@ -3,7 +3,7 @@ import axios from 'axios'
 export const setAvatar = async (files) =>{
     try{
 
-        const res = await axios.post('http://localhost:5001/api/profile/setAvatar',{
+        const res = await axios.post(`${process.env.API}/api/profile/setAvatar`,{
             files
         }, {withCredentials: true,headers: {'Content-Type': 'multipart/form-data'}})
         return res.data

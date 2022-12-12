@@ -5,7 +5,7 @@ import nookies from 'nookies'
 export const getProfile = async (ctx) =>{
     try{
         const cookies = nookies.get(ctx)
-        const res = await axios.get(`http://localhost:5001/api/pages/getProfile`, {
+        const res = await axios.get(`${process.env.API}/api/pages/getProfile`, {
             data: {
                 ref: cookies.ref ? cookies.ref : '',
                 acc: cookies.acc ? cookies.acc : '',

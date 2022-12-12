@@ -41,7 +41,7 @@ const Editor = ({blog}) => {
                     class: ImageTool,
                     config: {
                         endpoints: {
-                            byFile: 'http://localhost:5001/api/blog/uploadImg',
+                            byFile: `${process.env.API}/api/blog/uploadImg`,
                         }
                     }
                 },

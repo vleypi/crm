@@ -60,7 +60,7 @@ const Message = ({styles,message,user_id,contextmenuHandler,contextmenu,contextm
                         borderTopRightRadius: 5,
                     }}>
                          <img 
-                            src={'http://localhost:5001'+message.message_image} 
+                            src={`${process.env.API}`+message.message_image} 
                             width={'100%'} 
                             height={'100%'}
                             style={{
