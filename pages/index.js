@@ -36,9 +36,6 @@ import telegram from '../images/main_page/img/telegram.svg'
 import tiktok from '../images/main_page/img/tiktok.svg'
 import vk from '../images/main_page/img/vk.svg'
 import surprisebox from '../images/main_page/img/surprisebox.svg'
-import blog1 from '../images/main_page/img/blog1.jpg'
-import blog2 from '../images/main_page/img/blog2.jpg'
-import blog3 from '../images/main_page/img/blog3.jpg'
 import Head from 'next/head'
 import IMG_4022 from '../images/main_page/img/IMG_4022.jpg'
 import tild6337_group_313 from  '../images/main_page/img/tild6337-3038-4533-a266-623935396437__group_313.svg'
@@ -46,7 +43,7 @@ import Screenshot_44 from '../images/main_page/img/Screenshot_44.jpg'
 
 
 
-// import Typed from 'react-typed';
+import Typed from 'react-typed';
 import { Router, useRouter } from 'next/router'
 import { getPosts } from '../controllers/pagesController/getPosts'
 
@@ -97,12 +94,12 @@ const MainPage = (props) =>{
                         <div className={styles.js}>
                             <h1 style={{fontSize: "56px"}}>
                             <span style={{color:"rgb(47, 93, 192)"}}>ПРОСТО </span>СКАЖИ МИРУ
-                            <span className={styles.p_text} id={styles.text}>  
-                                {/* <Typed
+                            <span className={styles.p_text} id={styles.text}>   <Typed
                                     strings={["HELLO", "BONJOUR", "HALLO","你好","HEY"]}
                                     typeSpeed={150}
                                     loop
-                                /> */}
+                                />
+                                 
                             </span></h1>
                         </div>
                     <h3 style={{fontSize: "24px"}}>БОЛЕЕ ТЫСЯЧИ НАШИХ УЧЕНИКОВ ПОСТАВИЛИ ЦЕЛЬ И ЗАГОВОРИЛИ НА ДРУГОМ ЯЗЫКЕ.</h3>

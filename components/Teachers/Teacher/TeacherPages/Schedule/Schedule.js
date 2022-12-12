@@ -72,6 +72,13 @@ const DayScaleCell = ((
   />
 ));
 
+const ButtonComponent = (props) =>{
+  return(
+     <button onClick={props.setCurrentDate} style={{padding: '10px 20px',fontSize: 16,background: 'none',cursor: 'pointer',border: '1px #1976d2 solid',color: '#1976d2'}}>Сегодня</button>
+  )
+}
+
+
 const Schedule = (props) =>{
 
   const resources = [
@@ -103,11 +110,11 @@ const Schedule = (props) =>{
           <WeekView
             startDayHour={9}
             endDayHour={23}
-            dayScaleCellComponent={DayScaleCell}
+           
           /> 
           <Toolbar />
           <DateNavigator />
-          <TodayButton />
+          <TodayButton buttonComponent={ButtonComponent}/>
           <Appointments />
           <Resources data={resources} />
           <AppointmentTooltip
