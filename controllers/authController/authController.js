@@ -11,7 +11,7 @@ export const login = async (inputValues,dispatch,router) =>{
         router.replace('/crm/dashboard/profile')
     }
     catch(err){
-        return err.response.data
+        return err.response.data.mes
     }
 }
 

@@ -74,7 +74,7 @@ const Auth = ({role}) =>{
             }
         }
         catch(err){
-            console.log(err)
+            setMes('Неверный логин или пароль')
         }
     }
 
