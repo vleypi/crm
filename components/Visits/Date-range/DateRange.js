@@ -10,7 +10,7 @@ const DateRange = ({styles}) => {
     const dateHandler = (day) =>{
         const result = new Date(date);
         result.setDate(result.getDate() + day);
-        router.replace(`http://62.113.96.105:5001/crm/dashboard/visits/date?day=${result.getDate()}&month=${result.getMonth()}&year=${result.getFullYear()}`)
+        router.replace(`http://62.113.96.105:3000/crm/dashboard/visits/date?day=${result.getDate()}&month=${result.getMonth()}&year=${result.getFullYear()}`)
     }
 
     return (

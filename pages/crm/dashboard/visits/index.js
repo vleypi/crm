@@ -19,7 +19,7 @@ export const getServerSideProps = () =>{
     return{
         redirect: {
             permanent: false,
-            destination: `http://62.113.96.105:5001/crm/dashboard/visits/date?day=${today.getDate()}&month=${today.getMonth()}&year=${today.getFullYear()}`,
+            destination: `http://62.113.96.105:3000/crm/dashboard/visits/date?day=${today.getDate()}&month=${today.getMonth()}&year=${today.getFullYear()}`,
         }
     }
 }
