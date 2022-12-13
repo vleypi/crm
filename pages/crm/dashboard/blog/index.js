@@ -27,12 +27,7 @@ export const getServerSideProps = async (ctx) => {
         }
     }
     catch(err){
-
-        return {
-            redirect: {
-                permanent: false,
-                destination: "/404",
-            }
-        }
+        const server = getPosts(ctx)
+        return server
     }
 }
