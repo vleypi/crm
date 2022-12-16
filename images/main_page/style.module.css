@@ -106,6 +106,8 @@
     align-items: center;
     box-sizing: unset;
 }
+
+
 .general_banner-content_right {
     display: flex;
     gap: 2%;
@@ -315,18 +317,7 @@
 .section_form_mark_img {
     width: 81px;
 }
-.phone_img {
-    width: 288px;
-    height: 500px;
-    border-radius: 30px;
-    position: relative;
-    overflow: hidden;
-}
 
-.phone_under_img {
-    position: absolute;
-    object-fit: cover;
-}
 
 .phone_img_bottom {
     width: 40%;

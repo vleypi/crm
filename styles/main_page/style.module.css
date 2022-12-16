@@ -358,12 +358,17 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
 .second_section_form_box_img {
     font-size: 18px;
     color: white;
     display: flex;
     align-items: center;
     gap: 2%;
+}
+.second_section_form_box .document{
+    border-radius: 10px;
+    width: 400px;
 }
 .bottom_section_top_card {
     background: #5881fa;

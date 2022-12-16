@@ -26,7 +26,9 @@ import img1 from '../images/main_page/img/1.svg'
 import img2 from '../images/main_page/img/2.svg'
 import img3 from '../images/main_page/img/3.svg'
 import Group_2981 from '../images/main_page/img/Group_298.svg'
-import pug from '../images/main_page/img/____07_10_2022___pag.jpg'
+
+import pug from '../images/main_page/img/____07_10_2022___pag1.jpg'
+import pug2 from '../images/main_page/img/____07_10_2022___pag.jpg'
 import img1B from '../images/main_page/img/1B.svg'
 import img2B from '../images/main_page/img/2B.svg'
 import img3B from '../images/main_page/img/3B.svg'
@@ -38,6 +40,14 @@ import vk from '../images/main_page/img/vk.svg'
 import surprisebox from '../images/main_page/img/surprisebox.svg'
 import Head from 'next/head'
 import IMG_4022 from '../images/main_page/img/IMG_4022.jpg'
+import IMG_40222 from '../images/main_page/img/IMG_40222.png'
+import IMG_40223 from '../images/main_page/img/IMG_40223.png'
+import IMG_40224 from '../images/main_page/img/IMG_40224.png'
+import IMG_40225 from '../images/main_page/img/IMG_40225.png'
+import IMG_40226 from '../images/main_page/img/IMG_40226.png'
+import IMG_40227 from '../images/main_page/img/IMG_40227.png'
+import IMG_40228 from '../images/main_page/img/IMG_40228.png'
+import IMG_40229 from '../images/main_page/img/IMG_40229.png'
 import tild6337_group_313 from  '../images/main_page/img/tild6337-3038-4533-a266-623935396437__group_313.svg'
 import Screenshot_44 from '../images/main_page/img/Screenshot_44.jpg'
 
@@ -46,12 +56,14 @@ import Screenshot_44 from '../images/main_page/img/Screenshot_44.jpg'
 import { TypeAnimation } from 'react-type-animation';
 import { Router, useRouter } from 'next/router'
 import { getPosts } from '../controllers/pagesController/getPosts'
-
-
+import { useState } from 'react'
+import Iframe from 'react-iframe'
 
 const MainPage = (props) =>{
 
     const router = useRouter()
+
+
 
     const posts = props.posts.slice(0,3).map((post)=>(
         <div className={styles.bottom_section_form_box} onClick={()=>router.push(`/blog/${post.blog_id}`)}>
@@ -65,8 +77,39 @@ const MainPage = (props) =>{
         </div>
     ))
 
+    const docSlides = [pug,pug2]
+
+    const [docSlider,setDocSlider] = useState(0)
+
+    const docSliderHandler = () =>{
+        if(docSlider == docSlides.length-1){
+            setDocSlider(0)
+        }
+        else{
+            setDocSlider(prev=>prev+1)
+        }
+    }
+
+    const phoneSlides = [IMG_4022,IMG_40222,IMG_40223,IMG_40224,IMG_40225,IMG_40226,IMG_40227,IMG_40228,IMG_40229]
+
+    const [phoneSlider,setPhoneSlider] = useState(0)
+
+    const phoneSliderHandler = (step) =>{
+        if(phoneSlider == phoneSlides.length-1){
+            setPhoneSlider(0)
+        }
+        else if(phoneSlider == 0 && step == -1){
+            setPhoneSlider(phoneSlides.length-1)
+        }
+        else{
+            setPhoneSlider(prev=>prev+step)
+        }
+    }
+
+    console.log(phoneSlider)
+
     return(
-        <>
+        <div style={{scrollBehavior: 'smooth'}}>
             <Head>
                 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,500;1,300&amp;display=swap" rel="stylesheet" />
             </Head>
@@ -76,11 +119,12 @@ const MainPage = (props) =>{
                         <Image src={solomon__} style = "width: 100%; height: 100%;"/>
                     </div>
                     <div className={styles.navigation_panel_link}>
+
                         <a href="#snakebox"><p className={styles.navigation_panel_p_link}>Процесс обучения</p></a>
                         <a href="#programm"><p className={styles.navigation_panel_p_link}>Экспресс-программа</p></a>
                         <a href="#contact"><p className={styles.navigation_panel_p_link}>Контакты</p></a>
                         <a href="#blog"><p className={styles.navigation_panel_p_link}>Блог</p></a>
-                        <p className={styles.navigation_panel_p_link}>+7(383)23-59-131</p>
+                        <a href="tel:+7(383)23-59-131" className={styles.navigation_panel_p_link}>+7(383)23-59-131</a>
                     </div>
                     <div className={styles.navigation_panel_right}>
                         <button className={styles.login} onClick={()=>router.push('/auth')}>Вход</button>
@@ -114,10 +158,10 @@ const MainPage = (props) =>{
         <div className={styles.general_banner}>
             <div className={styles.general_banner_form}>
                 <p>ПОПРОБУЙТЕ БЕСПЛАТНО, ЗАПОЛНИВ ФОРМУ</p>
-                <input className={styles.action_form} id={styles.action_form_first} type="text" placeholder="Имя"/>
-                <input className={styles.action_form} id={styles.action_form_first} type="tel" placeholder="8(999)999999"/>
-                <input className={styles.action_form} id={styles.action_form_first} type="email" placeholder="Электронная почта"/>
-                <label><input className={styles.action_check_form} type="checkbox"/> Согласен(а) с <a href="https://solomon.plus/privacy" style={{color: "#ff8562"}}>политикой конфиденциальности</a></label>
+                <input style={{outline: 'none'}} className={styles.action_form} id={styles.action_form_first} type="text" placeholder="Имя"/>
+                <input style={{outline: 'none'}} className={styles.action_form} id={styles.action_form_first} type="tel" placeholder="8(999)999999"/>
+                <input style={{outline: 'none'}} className={styles.action_form} id={styles.action_form_first} type="email" placeholder="Электронная почта"/>
+                <label style={{alignSelf: 'flex-start',marginLeft: '10%'}}><input className={styles.action_check_form} type="checkbox"/> Согласен(а) с <a href="https://solomon.plus/privacy" style={{color: "#ff8562"}}>политикой конфиденциальности</a></label>
                 <button className={styles.general_banner_form_button} id={styles.action_form_first} type="submit">ОТПРАВИТЬ</button>
             </div>
             <div className={styles.general_banner_content}>
@@ -214,9 +258,9 @@ const MainPage = (props) =>{
                 </div>
             </div>
         </div>
-        <div className={styles.second_section_snake}>
+        <div className={styles.second_section_snake} id="snakebox">
                 <div className={styles.second_section_snake_box}>
-                <h2 style={{fontSize: '46px', paddingBottom: "5%"}} id={styles.snakebox}><span style={{color: "rgb(47, 93, 192)"}}>ПРОЦЕСС</span> ОБУЧЕНИЯ</h2>
+                <h2 style={{fontSize: '46px', paddingBottom: "5%"}} ><span style={{color: "rgb(47, 93, 192)"}}>ПРОЦЕСС</span> ОБУЧЕНИЯ</h2>
                     <div className = {styles.second_section_snake_box_text}>
                         <p className={styles.second_section_snake_text}>Бесплатное пробное занятие на любую программу</p>
                         <p className={styles.second_section_snake_text}>3 месяца-ваше знание языка становится увереннее</p>
@@ -310,20 +354,34 @@ const MainPage = (props) =>{
                         <Image src={img2}/>
                         <Image src={img3}/>
                         </div>
-                        <div className={styles.phone_img}>
-                            <div className={styles.phone_under_img}>
-                            <Image src={IMG_4022}/>
+                        
+                        <div style={{display: 'flex',alignItems: 'center'}}>
+                            <svg onClick={()=>phoneSliderHandler(-1)} style={{transform: 'rotate(0.5turn)',cursor: 'pointer'}} width="34" height="34" viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="M39 68L60 47L39 26" stroke="#2f5dc0" vector-effect="non-scaling-stroke" ></path></svg>
+                            <div className={styles.phone_img}>
+                                <div className={styles.phone_under_img} >
+                                    <Image src={phoneSlides[phoneSlider]}/>
+                                </div>
+                                <div className={styles.phone_under_img}>
+                                    <Image src={Group_2981} />
+                                </div>
                             </div>
-                            <div className={styles.phone_under_img}>
-                            <Image src={Group_2981} style={{width: '270px'}}/>
-                            </div>
+                            <svg onClick={()=>phoneSliderHandler(1)} style={{cursor: 'pointer'}} width="34" height="34" viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="M39 68L60 47L39 26" stroke="#2f5dc0" vector-effect="non-scaling-stroke" ></path></svg>
                         </div>
                     </div>
         </div>
         <div className={styles.second_section_form_box}>
-                    <Image src={pug} style={{width: "400px", borderRadius: "20px", webkitBoxShadow: "-1px -1px 8px 10px rgba(221, 222, 223, 0.50)",
-        mozBoxShadow: "-1px -1px 8px 10px rgba(221, 222, 223, 0.50)",
-        boxShadow: "-1px -1px 8px 10px rgba(221, 222, 223, 0.50)"}}/>
+                    <div style={{width: 400}}>
+                        <Image className={styles.document} src={docSlides[docSlider]} style={{width: 400}}/>
+                        <div style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            color: 'white',
+                            marginTop: 10
+                        }}>
+                            <svg onClick={docSliderHandler} style={{transform: 'rotate(0.5turn)',cursor: 'pointer'}} width="24" height="24" viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="M39 68L60 47L39 26" stroke="white" vector-effect="non-scaling-stroke" ></path></svg>
+                            <svg onClick={docSliderHandler} style={{cursor: 'pointer'}} width="24" height="24" viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="M39 68L60 47L39 26" stroke="white" vector-effect="non-scaling-stroke" ></path></svg>
+                        </div>
+                    </div>
                     <div className={styles.second_section_form_box_text}>
                         <h2 style={{color: "white",fontSize: '46px', paddingBottom: "5%"}}>ГОСУДАРСТВЕННАЯ ЛИЦЕНЗИЯ</h2>
                         <div className={styles.second_section_form_box_img}>
@@ -347,7 +405,7 @@ const MainPage = (props) =>{
                     </div>
         </div>
     </section>
-    <section className={styles.bottom_section}>
+    <section className={styles.bottom_section} id="programm">
                 <div className={styles.bottom_section_top}>
             <h2 style={{fontSize: '46px', paddingBottom: "5%"}}><span style={{color: "rgb(47, 93, 192)"}}>ПРОГРАММЫ </span>ОБУЧЕНИЯ</h2>
             <div class={styles.bottom_section_top_box}>
@@ -430,14 +488,15 @@ const MainPage = (props) =>{
             <div className={styles.bottom_section_box_img}>
                 <Image src={centr} style="width: fit-content"/>
             </div>
-                {/* <iframe style={{marginleft: "40%",
-                        borderRadius: "20px",
-                        width: "300", height: "520",
-                        src: "https://www.youtube.com/embed/h5jRyda8Yw8",
-                        title: "Алия,преподаватель по французскому",
-                        frameborder: "0", allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
-                        allowfullscreen}}>
-                </iframe> */}
+                <Iframe 
+                        styles={{marginLeft: '30%',borderRadius: '10px',border: 'none'}}
+                        width='300px'
+                        height='520px'
+                        url="https://www.youtube.com/embed/h5jRyda8Yw8"
+                        allowFullScreen={true}
+                        title="Алия,преподаватель по французскому"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                />
             </div>
             <div className={styles.bottom_section_center_box}>
                 <h2 style={{fontSize: '46px', paddingBottom: "5%"}}>ПРЕПОДАВАТЕЛИ</h2>
@@ -517,17 +576,19 @@ const MainPage = (props) =>{
             </div>
         <div className={styles.bottom_section_blog}></div>
         </div>
-        {posts.length > 0 &&
-            <div style={{cursor: 'pointer'}} className={styles.bottom_section_form_blog} onClick={()=>router.push(`/blog`)}>
-                <div className={styles.bottom_section_form_text}>
-                    <h2 style={{fontSize: '46px', paddingBottom: "5%"}} id={styles.blog}>БЛОГ</h2>
-                    <h3 style={{paddingBottom: "5%"}}>ДЕЛИМСЯ ПОЛЕЗНОЙ ИНФОРМАЦИЕЙ ДЛЯ НАШИХ СТУДЕНТОВ</h3>
-                </div>
-                <div className={styles.bottom_section_form_blog_box}>
-                    {posts}
-                </div>
+        
+            <div style={{cursor: 'pointer'}} className={styles.bottom_section_form_blog} onClick={()=>router.push(`/blog`)} id="blog">
+                    <div className={styles.bottom_section_form_text}>
+                        <h2 style={{fontSize: '46px', paddingBottom: "5%"}}>БЛОГ</h2>
+                        <h3 style={{paddingBottom: "5%"}}>ДЕЛИМСЯ ПОЛЕЗНОЙ ИНФОРМАЦИЕЙ ДЛЯ НАШИХ СТУДЕНТОВ</h3>
+                    </div>
+                    {posts.length > 0 &&
+                        <div className={styles.bottom_section_form_blog_box}>
+                            {posts}
+                        </div>
+                    }
             </div>  
-        }
+    
     </section>
         <footer className={styles.footer_section}>
         <div className={styles.footer_section_box}>
@@ -576,13 +637,13 @@ const MainPage = (props) =>{
             <p>О школе и основателях</p>
             <p>Узнай свой уровень</p>
         </div>
-        <div className={styles.footer_section_box}>
-            <h5 id={styles.contact}>КОНТАКТЫ</h5>
-            <p>englishsolomon.en@gmail.com</p>
-            <p>+ 7 (993) 028-48-98</p>
+        <div id="contact" className={styles.footer_section_box}>
+            <h5 >КОНТАКТЫ</h5>
+            <p style={{fontSize: 22}}>englishsolomon.en@gmail.com</p>
+            <p style={{fontSize: 22}}>+ 7 (993) 028-48-98</p>
         </div>
     </footer>
-        </>
+        </div>
     )
 }
 
