@@ -30,7 +30,7 @@ const Profile = (props) =>{
             <div className={styles.profileHeader}>
                 <div className={styles.info}>
                         <div className={styles.avatar}>
-                            {props.user.avatar ? <img src={`http://localhost:5001`+props.user.avatar}/> : `${props.user.name[0]}`}
+                            {props.user.avatar ? <img src={`http://62.113.96.105:5001`+props.user.avatar}/> : `${props.user.name[0]}`}
                         </div>
                         <div className={styles.mainInfo}>
                             <div style={{display: 'flex'}}>

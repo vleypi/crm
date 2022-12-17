@@ -10,7 +10,7 @@ const Avatar = ({user,styles}) => {
     const router = useRouter()
     const dispatch = useDispatch()
   
-    const image = user.user.avatar && `http://localhost:5001` + user.user.avatar
+    const image = user.user.avatar && `http://62.113.96.105:5001` + user.user.avatar
   
     const submit = async event => {
       event.preventDefault()
@@ -18,7 +18,7 @@ const Avatar = ({user,styles}) => {
       const formData = new FormData()
       formData.append("image", event.target.files[0])
   
-      const {data} = await axios.post(`http://localhost:5001/api/profile/setAvatar`, formData, {withCredentials: true, headers: {'Content-Type': 'multipart/form-data'}})
+      const {data} = await axios.post(`http://62.113.96.105:5001/api/profile/setAvatar`, formData, {withCredentials: true, headers: {'Content-Type': 'multipart/form-data'}})
   
       dispatch(setAvatar(data.imagePath))
   

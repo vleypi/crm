@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
 
-const socket = io(`http://localhost:5001/`, {transports: [ "websocket" ]});
+const socket = io(`http://62.113.96.105:5001/`, {transports: [ "websocket" ]});
 
 export default function useSocket(cb) {
 	const [activeSocket, setActiveSocket] = useState(null);
