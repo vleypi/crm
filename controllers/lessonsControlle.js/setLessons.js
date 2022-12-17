@@ -3,7 +3,7 @@ import axios from 'axios'
 export const setLessons = async (functions) =>{
     try{
 
-        const res = await axios.post(`http://62.113.96.105:5001/api/lessons/setLessons`,{
+        const res = await axios.post(`http://localhost:5001/api/lessons/setLessons`,{
             lesson_name: functions.lesson_name,
             lesson_color: functions.lesson_color.color,
             lesson_id: functions.lesson_id,

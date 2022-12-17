@@ -4,7 +4,7 @@ import nookies from 'nookies'
 
 export const getUsersForChat = async (ctx) =>{
         const cookies = nookies.get(ctx)
-        const res = await axios.get(`http://62.113.96.105:5001/api/pages/getUsersForChat`, {
+        const res = await axios.get(`http://localhost:5001/api/pages/getUsersForChat`, {
             data: {
                 ref: cookies.ref ? cookies.ref : '',
                 acc: cookies.acc ? cookies.acc : '',

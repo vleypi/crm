@@ -63,8 +63,6 @@ const MainPage = (props) =>{
 
     const router = useRouter()
 
-
-
     const posts = props.posts.slice(0,3).map((post)=>(
         <div className={styles.bottom_section_form_box} onClick={()=>router.push(`/blog/${post.blog_id}`)}>
             <div className={styles.bottom_section_form_box_img}>
